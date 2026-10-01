@@ -113,7 +113,6 @@
   const candleMsg = $("#candle-msg");
   const candleTotalEl = $("#candle-total");
   const candleTotalWord = $("#candle-total-word");
-  const candleNote = $("#candle-note");
 
   let candleTotal = 0;
   let candleIsLit = false;
@@ -177,9 +176,6 @@
       candleTotal = store.get("candleTotalLocal", 0);
       if (store.get("candleLit", "0") === "1") setCandleLit(candleTotal);
       else renderCandle();
-      if (candleNote) {
-        candleNote.textContent = "Сервер учёта недоступен: свеча сохраняется только в этом браузере.";
-      }
     }
   }
 

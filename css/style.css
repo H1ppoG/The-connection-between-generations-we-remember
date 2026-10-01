@@ -684,12 +684,6 @@ a:hover { color: var(--gold-light); }
   color: var(--paper);
 }
 .candle-counter strong { color: var(--gold); font-family: var(--serif); font-size: 1.4rem; }
-.candle-note {
-  text-align: center;
-  margin-top: 0.8rem;
-  font-size: 0.85rem;
-  color: var(--paper-faint);
-}
 
 /* ---------- Диалог поколений ---------- */
 .dialogue-grid {
