@@ -312,9 +312,6 @@ a:hover { color: var(--gold-light); }
 /* ---------- Хроника ---------- */
 .timeline {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 3.5rem;
   max-width: 1140px;
   margin: 0 auto;
   padding: 1rem 0;
@@ -329,9 +326,12 @@ a:hover { color: var(--gold-light); }
 }
 .timeline__item {
   position: relative;
+  width: 50%;
   padding: 1.2rem 2.6rem 2.8rem 2.6rem;
+  height: 285px;
 }
 .timeline__item:nth-child(even) {
+  margin-left: 50%;
   padding: 1.2rem 0 2.8rem 2.6rem;
 }
 .timeline__item::before {
@@ -392,6 +392,12 @@ a:hover { color: var(--gold-light); }
     rgba(15, 19, 11, 0.95) 100%
   );
 }
+/* Просвет к центральной линии: фото и градиент не заползают на линию */
+.timeline__item .timeline__bg,
+.timeline__item::after { right: 1.75rem; }
+.timeline__item:nth-child(even) .timeline__bg { right: 0; left: 1.75rem; }
+.timeline__item:nth-child(even)::after { right: 0; left: 1.75rem; }
+
 .timeline__item > .timeline__title,
 .timeline__item > .timeline__text {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -988,7 +994,6 @@ a:hover { color: var(--gold-light); }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .regiment-grid { grid-template-columns: 1fr; }
   .regiment-form { position: static; }
-  .timeline { grid-template-columns: 1fr; }
   .timeline::before { left: 12px; }
   .timeline__item, .timeline__item:nth-child(even) {
     width: 100%;
@@ -996,6 +1001,8 @@ a:hover { color: var(--gold-light); }
     padding: 1.2rem 0 2.4rem 2.4rem;
     height: auto;
   }
+  .timeline__item .timeline__bg, .timeline__item:nth-child(even) .timeline__bg,
+  .timeline__item::after, .timeline__item:nth-child(even)::after { inset: 0; }
   .timeline__item::before, .timeline__item:nth-child(even)::before {
     left: 4px;
     right: auto;
