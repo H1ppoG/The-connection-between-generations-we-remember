@@ -111,7 +111,7 @@ svyaz-pokoleniy/
 - Брестская крепость — `img/hero.jpg`, `img/brest-stone.jpg`, `img/kholm-gate.jpg` (Холмские ворота, автор Alexxx1979, CC BY-SA 4.0)
 - Хатынь — `img/khatyn.jpg`, `img/khatyn-man.jpg`
 - Курган Славы — `img/kurgan.jpg`
-- Монумент Победы, Минск — `img/victory.jpg`, `img/flame.jpg`, `img/flame-guard.jpg`
+- Монумент Победы, Минск — `img/victory-minsk.jpg` (Вечный огонь, автор Eugene Zelenko, CC BY-SA 4.0), `img/flame.jpg`, `img/flame-guard.jpg`
 - Линия Сталина — `img/stalin.jpg`
 - Тростенец — `img/trastsianets.jpg`
 
