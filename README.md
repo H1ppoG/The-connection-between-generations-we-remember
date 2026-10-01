@@ -108,7 +108,7 @@ svyaz-pokoleniy/
 Фотографии мемориалов взяты из открытого архива **Wikimedia Commons**
 (свободные лицензии CC BY-SA и др., авторы: Википедия/Wikimedia):
 
-- Брестская крепость — `img/hero.jpg`, `img/brest-stone.jpg`
+- Брестская крепость — `img/hero.jpg`, `img/brest-stone.jpg`, `img/kholm-gate.jpg` (Холмские ворота, автор Alexxx1979, CC BY-SA 4.0)
 - Хатынь — `img/khatyn.jpg`, `img/khatyn-man.jpg`
 - Курган Славы — `img/kurgan.jpg`
 - Монумент Победы, Минск — `img/victory.jpg`, `img/flame.jpg`, `img/flame-guard.jpg`
