@@ -278,7 +278,7 @@ a:hover { color: var(--gold-light); }
 .about-text strong { color: var(--gold-light); }
 .about-quote {
   border-left: 3px solid var(--red);
-  padding: 1.2rem 1.6rem 1.2rem 0.7rem;
+  padding: 1.2rem 1.6rem 1.2rem 0;
   background: rgba(201, 163, 92, 0.06);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
