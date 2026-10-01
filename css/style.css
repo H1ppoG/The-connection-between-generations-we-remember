@@ -314,6 +314,7 @@ a:hover { color: var(--gold-light); }
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 3.5rem;
   max-width: 1140px;
   margin: 0 auto;
   padding: 1rem 0;
