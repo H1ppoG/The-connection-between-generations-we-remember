@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модерация «Бессмертного полка» — Связь поколений</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪖</text></svg>">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .admin-body { background: linear-gradient(var(--olive-950), var(--olive-900)); min-height: 100vh; }
+    .admin { max-width: 980px; padding: 3rem 1.2rem 4rem; }
+    .admin__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .admin__head h1 { font-family: var(--serif); color: var(--gold-light); font-size: 1.9rem; }
+    .admin__head a { color: var(--gold); font-size: 0.95rem; }
+
+    .admin-login {
+      background: var(--olive-800);
+      border: 1px solid rgba(201, 163, 92, 0.16);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 420px;
+    }
+    .admin-login label { display: block; margin-bottom: 1rem; }
+    .admin-login label > span { display: block; font-size: 0.85rem; color: var(--paper-dim); margin-bottom: 0.35rem; }
+    .admin-login input[type="password"] {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1px solid var(--line); border-radius: 8px;
+      background: var(--olive-900); color: var(--paper);
+      font-family: var(--sans); font-size: 1rem;
+    }
+    .admin-login input[type="password"]:focus { outline: none; border-color: var(--gold); }
+    .admin-login__msg { margin-top: 0.9rem; font-size: 0.9rem; color: var(--red); min-height: 1.2em; }
+
+    .admin-counts { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
+    .admin-counts span {
+      background: var(--olive-800);
+      border: 1px solid rgba(201, 163, 92, 0.16);
+      border-radius: 24px;
+      padding: 0.45rem 1rem;
+      font-size: 0.9rem;
+      color: var(--paper-dim);
+    }
+    .admin-counts strong { color: var(--gold-light); font-family: var(--serif); font-size: 1.1rem; }
+
+    .admin h2 {
+      font-family: var(--serif); font-size: 1.3rem; color: var(--gold-light);
+      margin: 1.8rem 0 0.9rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid rgba(201, 163, 92, 0.18);
+    }
+    .admin-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .admin-card {
+      background: var(--olive-800);
+      border: 1px solid rgba(201, 163, 92, 0.16);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.4rem;
+    }
+    .admin-card--pending { border-left-color: var(--gold); }
+    .admin-card--approved { border-left-color: #4f8f4f; }
+    .admin-card--rejected { border-left-color: var(--red); }
+    .admin-card__head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+    .admin-card__name { font-family: var(--serif); font-size: 1.2rem; color: var(--gold-light); }
+    .admin-card__badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--paper-faint); }
+    .admin-card__meta { margin-top: 0.3rem; font-size: 0.85rem; color: var(--paper-dim); }
+    .admin-card__meta .sep { margin: 0 0.4rem; opacity: 0.5; }
+    .admin-card textarea {
+      width: 100%; min-height: 110px; margin-top: 0.7rem;
+      padding: 0.7rem 0.9rem; box-sizing: border-box;
+      background: var(--olive-900); color: var(--paper);
+      border: 1px solid var(--line); border-radius: 8px;
+      font-family: var(--sans); font-size: 0.95rem; line-height: 1.45;
+    }
+    .admin-card textarea:focus { outline: none; border-color: var(--gold); }
+    .admin-card__plain { margin-top: 0.7rem; font-size: 0.95rem; color: var(--paper); white-space: pre-line; }
+    .admin-card__author { margin-top: 0.6rem; font-size: 0.82rem; color: var(--paper-faint); }
+    .admin-card__img {
+      width: 56px; height: 68px; border-radius: 6px; overflow: hidden;
+      border: 1px solid rgba(201, 163, 92, 0.3); background: var(--olive-900);
+      flex: 0 0 auto;
+    }
+    .admin-card__body { display: flex; gap: 1rem; align-items: flex-start; }
+    .admin-card__main { flex: 1; min-width: 0; }
+    .admin-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .admin-card__medal {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+      font-family: var(--serif); font-size: 1.1rem; color: var(--gold);
+    }
+
+    .admin-card__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .admin-btn {
+      border: 1px solid rgba(201, 163, 92, 0.35); border-radius: 8px;
+      background: none; color: var(--paper);
+      font-family: var(--sans); font-size: 0.88rem;
+      padding: 0.5rem 1rem; cursor: pointer; transition: all 0.2s ease;
+    }
+    .admin-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+    .admin-btn--ok { border-color: #4f8f4f; color: #9fd09f; }
+    .admin-btn--ok:hover { background: rgba(79, 143, 79, 0.15); color: #cbeacb; }
+    .admin-btn--no { border-color: var(--red); color: #e8a0a0; }
+    .admin-btn--no:hover { background: rgba(160, 44, 44, 0.15); color: #ffc9c9; }
+    .admin-btn--ghost { border-color: var(--line); color: var(--paper-dim); }
+    .admin-empty { color: var(--paper-faint); font-size: 0.9rem; font-style: italic; }
+    .admin-msg { margin: 0.8rem 0; font-size: 0.9rem; min-height: 1.2em; }
+    .admin-msg--ok { color: var(--gold-light); }
+    .admin-msg--err { color: var(--red); }
+    .admin-logout { background: none; border: 0; color: var(--paper-dim); font-size: 0.85rem; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body class="admin-body">
+  <div class="container admin">
+    <header class="admin__head">
+      <h1>Модерация «Бессмертного полка»</h1>
+      <a href="index.html">← Вернуться на сайт</a>
+    </header>
+
+    <form id="admin-login" class="admin-login">
+      <label>
+        <span>Пароль модератора</span>
+        <input type="password" id="admin-pass" placeholder="Введите пароль" autocomplete="current-password">
+      </label>
+      <button class="btn btn--primary" type="submit">Войти</button>
+      <p class="admin-login__msg" id="admin-login-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <div id="admin-panel" hidden>
+      <p class="admin-msg" id="admin-msg" role="status" aria-live="polite"></p>
+      <div class="admin-counts">
+        <span>На модерации: <strong id="c-pending">0</strong></span>
+        <span>Опубликовано: <strong id="c-approved">0</strong></span>
+        <span>Отклонено: <strong id="c-rejected">0</strong></span>
+      </div>
+      <button class="admin-logout" id="admin-logout" type="button">Выйти</button>
+
+      <h2>На модерации</h2>
+      <div class="admin-list" id="admin-pending"></div>
+
+      <h2>Опубликованные</h2>
+      <div class="admin-list" id="admin-approved"></div>
+
+      <h2>Отклонённые</h2>
+      <div class="admin-list" id="admin-rejected"></div>
+    </div>
+  </div>
+
+  <script>
+    var TOKEN_KEY = "adminToken";
+    function getToken() { return localStorage.getItem(TOKEN_KEY) || ""; }
+
+    function msg(text, ok) {
+      var el = document.getElementById("admin-msg");
+      if (!el) return;
+      el.textContent = text || "";
+      el.className = "admin-msg" + (ok ? " admin-msg--ok" : text ? " admin-msg--err" : "");
+    }
+
+    function api(path, opts) {
+      opts = opts || {};
+      opts.headers = Object.assign({}, opts.headers || {}, { "X-Admin-Token": getToken() });
+      return fetch(path, opts).then(function (r) { return r.json().catch(function () { return {}; }); });
+    }
+
+    function initials(name) {
+      var parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+      var a = parts[0] ? parts[0][0] : "";
+      var b = parts[1] ? parts[1][0] : "";
+      return (a + b).toUpperCase() || "Г";
+    }
+
+    function medalOrImg(item) {
+      if (item.photo) {
+        return '<div class="admin-card__img"><img src="' + item.photo + '" alt=""></div>';
+      }
+      return '<div class="admin-card__img"><span class="admin-card__medal">' + initials(item.name) + '</span></div>';
+    }
+
+    function el(parentId, item, editable) {
+      var card = document.createElement("article");
+      card.className = "admin-card admin-card--" + item.status;
+      var meta = [item.rank, item.years, item.place].filter(Boolean).join('<span class="sep">·</span>');
+      var body = document.createElement("div");
+      body.className = "admin-card__body";
+      body.innerHTML = medalOrImg(item) + '<div class="admin-card__main">' +
+        '<div class="admin-card__head">' +
+          '<span class="admin-card__name"></span>' +
+          '<span class="admin-card__badge"></span>' +
+        '</div>' +
+        '<p class="admin-card__meta">' + (meta || "") + '</p>' +
+        '<div class="admin-card__text-holder"></div>' +
+        '<p class="admin-card__author">Историю добавил(а): </p>' +
+      '</div>';
+      body.querySelector(".admin-card__name").textContent = item.name;
+      body.querySelector(".admin-card__badge").textContent = item.status === "pending" ? "ждёт проверки" : item.status === "approved" ? "опубликовано" : "отклонено";
+      var holder = body.querySelector(".admin-card__text-holder");
+      if (editable) {
+        var ta = document.createElement("textarea");
+        ta.dataset.field = "text";
+        ta.value = item.text || "";
+        holder.appendChild(ta);
+      } else {
+        var p = document.createElement("p");
+        p.className = "admin-card__plain";
+        p.textContent = item.text || "";
+        holder.appendChild(p);
+      }
+      body.querySelector(".admin-card__author").textContent += item.author || "";
+      card.appendChild(body);
+
+      var actions = document.createElement("div");
+      actions.className = "admin-card__actions";
+      function mk(label, cls, fn) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "admin-btn " + (cls || "");
+        b.textContent = label;
+        b.addEventListener("click", fn);
+        actions.appendChild(b);
+      }
+      var collectEdits = function () {
+        var edits = {};
+        body.querySelectorAll("textarea[data-field]").forEach(function (t) {
+          edits[t.dataset.field] = t.value;
+        });
+        return edits;
+      };
+      if (editable) {
+        mk("Одобрить", "admin-btn--ok", function () {
+          api("api/regiment/moderate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: "approve", edits: collectEdits() })
+          }).then(function () { msg("Заявка опубликована в полку.", true); loadAll(); });
+        });
+        mk("Отклонить", "admin-btn--no", function () {
+          api("api/regiment/moderate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: "reject" })
+          }).then(function () { msg("Заявка отклонена.", true); loadAll(); });
+        });
+        mk("Удалить навсегда", "admin-btn--ghost", function () {
+          if (!confirm("Удалить заявку без возможности восстановления?")) return;
+          api("api/regiment/moderate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: "delete" })
+          }).then(function () { msg("Заявка удалена.", true); loadAll(); });
+        });
+      } else {
+        mk("Вернуть на модерацию", "admin-btn--ghost", function () {
+          api("api/regiment/moderate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: "restore" })
+          }).then(function () { msg("Заявка возвращена в очередь.", true); loadAll(); });
+        });
+        mk("Удалить", "admin-btn--ghost", function () {
+          if (!confirm("Удалить запись?")) return;
+          api("api/regiment/moderate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: "delete" })
+          }).then(function () { msg("Запись удалена.", true); loadAll(); });
+        });
+      }
+      card.appendChild(actions);
+      document.getElementById(parentId).appendChild(card);
+    }
+
+    function renderList(id, items, editable) {
+      var host = document.getElementById(id);
+      host.innerHTML = "";
+      var rendered = 0;
+      items.forEach(function (it) {
+        if (editable) {
+          if (it.status === "pending") { el(id, it, true); rendered += 1; }
+          return;
+        }
+        if (it.status === (id === "admin-approved" ? "approved" : "rejected")) { el(id, it, false); rendered += 1; }
+      });
+      if (!rendered) {
+        var p = document.createElement("p");
+        p.className = "admin-empty";
+        p.textContent = editable ? "Очередь пуста — заявок на проверку нет." : "Здесь пока пусто.";
+        host.appendChild(p);
+      }
+    }
+
+    function loadAll() {
+      return api("api/regiment/admin").then(function (data) {
+        if (!data || !data.items) {
+          logout(true);
+          return;
+        }
+        document.getElementById("c-pending").textContent = data.counts.pending;
+        document.getElementById("c-approved").textContent = data.counts.approved;
+        document.getElementById("c-rejected").textContent = data.counts.rejected;
+        renderList("admin-pending", data.items, true);
+        renderList("admin-approved", data.items, false);
+        renderList("admin-rejected", data.items, false);
+      });
+    }
+
+    function logout(unauthorized) {
+      localStorage.removeItem(TOKEN_KEY);
+      document.getElementById("admin-panel").hidden = true;
+      document.getElementById("admin-login").hidden = false;
+      if (unauthorized) document.getElementById("admin-login-msg").textContent = "Сессия истекла — войдите снова.";
+    }
+
+    document.getElementById("admin-login").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var pass = document.getElementById("admin-pass").value;
+      fetch("api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pass })
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        if (data.ok && data.token) {
+          localStorage.setItem(TOKEN_KEY, data.token);
+          document.getElementById("admin-login-msg").textContent = "";
+          document.getElementById("admin-login").hidden = true;
+          document.getElementById("admin-panel").hidden = false;
+          loadAll();
+        } else {
+          document.getElementById("admin-login-msg").textContent = "Неверный пароль.";
+        }
+      }).catch(function () {
+        document.getElementById("admin-login-msg").textContent = "Сервер недоступен. Запустите node server.js.";
+      });
+    });
+
+    document.getElementById("admin-logout").addEventListener("click", function () { logout(); });
+
+    if (getToken()) {
+      loadAll().then(function () {
+        document.getElementById("admin-login").hidden = true;
+        document.getElementById("admin-panel").hidden = false;
+      }).catch(function () { /* останемся на форме входа */ });
+    } else {
+      document.getElementById("admin-login").hidden = false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "svyaz-pokoleniy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "«Связь поколений: мы помним» — интерактивный сайт о сохранении исторической памяти",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
