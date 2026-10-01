@@ -270,7 +270,7 @@ a:hover { color: var(--gold-light); }
 .about-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 0;
+  gap: 1.5rem;
   align-items: center;
   margin-bottom: 4rem;
 }
