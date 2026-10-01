@@ -148,6 +148,35 @@ a:hover { color: var(--gold-light); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+.lang-switch {
+  display: flex;
+  gap: 0.25rem;
+  flex: none;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.lang-switch__btn {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-dim);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.lang-switch__btn:hover { color: var(--paper); }
+.lang-switch__btn.active {
+  background: var(--gold);
+  color: var(--olive-900);
+}
+
 /* ---------- Главный экран ---------- */
 .hero {
   position: relative;

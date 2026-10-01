@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>«Связь поколений: мы помним» — интерактивный проект памяти</title>
+  <title id="page-title">«Связь поколений: мы помним» — интерактивный проект памяти</title>
   <meta name="description" content="Интерактивный проект о сохранении исторической памяти о Великой Отечественной войне и героическом прошлом белорусского народа: хроника, герои, места памяти, викторина, свеча памяти и семейные истории.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a35c' d='M12 1.7l2.8 6.3 6.9.7-5.2 4.6 1.5 6.7L12 16.5l-6 3.5 1.5-6.7L2.3 8.7l6.9-.7z'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,21 +21,26 @@
           <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 1.7l2.8 6.3 6.9.7-5.2 4.6 1.5 6.7L12 16.5l-6 3.5 1.5-6.7L2.3 8.7l6.9-.7z"/></svg>
         </span>
         <span class="brand__text">
-          <span class="brand__title">Связь поколений</span>
-          <span class="brand__sub">мы помним</span>
+          <span class="brand__title" data-i18n="brand.title">Связь поколений</span>
+          <span class="brand__sub" data-i18n="brand.sub">мы помним</span>
         </span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Основная навигация">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#about">О проекте</a></li>
-          <li><a class="nav__link" href="#chronicle">Хроника</a></li>
-          <li><a class="nav__link" href="#heroes">Герои</a></li>
-          <li><a class="nav__link" href="#memory">Места памяти</a></li>
-          <li><a class="nav__link" href="#quiz">Викторина</a></li>
-          <li><a class="nav__link" href="#regiment">Бессмертный полк</a></li>
+          <li><a class="nav__link" href="#about" data-i18n="nav.about">О проекте</a></li>
+          <li><a class="nav__link" href="#chronicle" data-i18n="nav.chronicle">Хроника</a></li>
+          <li><a class="nav__link" href="#heroes" data-i18n="nav.heroes">Герои</a></li>
+          <li><a class="nav__link" href="#memory" data-i18n="nav.memory">Места памяти</a></li>
+          <li><a class="nav__link" href="#quiz" data-i18n="nav.quiz">Викторина</a></li>
+          <li><a class="nav__link" href="#regiment" data-i18n="nav.regiment">Бессмертный полк</a></li>
         </ul>
       </nav>
+
+      <div class="lang-switch" role="group" aria-label="Язык сайта / Мова сайта">
+        <button type="button" class="lang-switch__btn" data-lang="ru" aria-pressed="true">Рус</button>
+        <button type="button" class="lang-switch__btn" data-lang="be" aria-pressed="false">Бел</button>
+      </div>
 
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
@@ -49,19 +54,19 @@
       <div class="hero__bg" role="img" aria-label="Мемориал Брестской крепости"></div>
       <div class="hero__veil"></div>
       <div class="container hero__content">
-        <p class="hero__kicker">Конкурсный интерактивный ИТ-проект · 2026</p>
-        <h1 class="hero__title">Связь поколений:<br><span>мы помним</span></h1>
+        <p class="hero__kicker" data-i18n="hero.kicker">Конкурсный интерактивный ИТ-проект · 2026</p>
+        <h1 class="hero__title" data-i18n-html="hero.title">Связь поколений:<br><span>мы помним</span></h1>
         <div class="hero__ribbon" aria-hidden="true"><i></i><i></i><i></i></div>
-        <p class="hero__text">
+        <p class="hero__text" data-i18n="hero.text">
           Интерактивный проект о сохранении исторической памяти о событиях Великой Отечественной войны,
           героическом прошлом белорусского народа и диалоге поколений.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#candle">Зажечь свечу памяти</a>
-          <a class="btn btn--ghost" href="#quiz">Пройти викторину</a>
+          <a class="btn btn--primary" href="#candle" data-i18n="hero.candleBtn">Зажечь свечу памяти</a>
+          <a class="btn btn--ghost" href="#quiz" data-i18n="hero.quizBtn">Пройти викторину</a>
         </div>
         <a class="hero__scroll" href="#about" aria-label="Листать вниз">
-          <span></span>Листайте вниз
+          <span></span><span data-i18n="hero.scroll">Листайте вниз</span>
         </a>
       </div>
     </section>
@@ -70,20 +75,20 @@
     <section class="section section--dark" id="about">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">О проекте</p>
-          <h2 class="section-head__title">Почему мы помним</h2>
+          <p class="section-head__kicker" data-i18n="about.kicker">О проекте</p>
+          <h2 class="section-head__title" data-i18n="about.title">Почему мы помним</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
         <div class="about-grid">
           <div class="about-text reveal">
-            <p>
+            <p data-i18n="about.p1">
               Великая Отечественная война стала самой трагической страницей истории Беларуси.
               Каждый третий житель республики погиб: в боях, под оккупацией, в лагерях смерти,
               в сожжённых вместе с людьми деревнях. Память об этом — не просто даты в учебнике.
               Это судьбы конкретных людей: наших прадедов и прабабушек.
             </p>
-            <p>
+            <p data-i18n-html="about.p2">
               Наш проект — это <strong>мост между поколениями</strong>. Мы рассказываем
               о войне языком цифр и фактов, знакомим с героями и мемориалами, предлагаем
               пройти викторину, зажечь виртуальную свечу и сохранить историю своего
@@ -91,41 +96,41 @@
             </p>
           </div>
           <div class="about-quote reveal">
-            <blockquote>
+            <blockquote data-i18n-html="about.quote">
               «Помните!<br>
               Через века, через года —<br>
               помните!<br>
               О тех, кто уже не придёт<br>
               никогда, — помните!»
             </blockquote>
-            <cite>Роберт Рождественский, «Реквием»</cite>
+            <cite data-i18n="about.cite">Роберт Рождественский, «Реквием»</cite>
           </div>
         </div>
 
         <div class="stats" id="stats">
           <div class="stat reveal">
             <span class="stat__num" data-count="1418" data-suffix="">0</span>
-            <span class="stat__label">дней длилась Великая Отечественная война</span>
+            <span class="stat__label" data-i18n="stat.1">дней длилась Великая Отечественная война</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num" data-count="2.2" data-suffix=" млн">0</span>
-            <span class="stat__label">жителей Беларуси погибли — каждый третий</span>
+            <span class="stat__label" data-i18n="stat.2">жителей Беларуси погибли — каждый третий</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num" data-count="9200" data-suffix="">0</span>
-            <span class="stat__label">деревень сожгли оккупанты, 5295 — вместе с жителями</span>
+            <span class="stat__label" data-i18n="stat.3">деревень сожгли оккупанты, 5295 — вместе с жителями</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num" data-count="374" data-suffix=" тыс.">0</span>
-            <span class="stat__label">партизан и подпольщиков сражались в тылу врага</span>
+            <span class="stat__label" data-i18n="stat.4">партизан и подпольщиков сражались в тылу врага</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num" data-count="1.3" data-suffix=" млн">0</span>
-            <span class="stat__label">белорусов воевали в рядах Красной армии</span>
+            <span class="stat__label" data-i18n="stat.5">белорусов воевали в рядах Красной армии</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num" data-count="75" data-suffix="">0</span>
-            <span class="stat__label">детей погибли в огне Хатыни 22 марта 1943 года</span>
+            <span class="stat__label" data-i18n="stat.6">детей погибли в огне Хатыни 22 марта 1943 года</span>
           </div>
         </div>
       </div>
@@ -135,59 +140,59 @@
     <section class="section" id="chronicle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Хроника</p>
-          <h2 class="section-head__title">Беларусь в годы войны</h2>
+          <p class="section-head__kicker" data-i18n="chronicle.kicker">Хроника</p>
+          <h2 class="section-head__title" data-i18n="chronicle.title">Беларусь в годы войны</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
         <div class="timeline">
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/hero.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1941-06-22">22 июня 1941</time>
-            <h3 class="timeline__title">Начало войны</h3>
-            <p class="timeline__text">Первой на пути врага на белорусской земле встала Брестская крепость. Гарнизон принял бой в первые минуты войны и сражался почти месяц в полном окружении.</p>
+            <time class="timeline__date" datetime="1941-06-22" data-i18n="chron.1.date">22 июня 1941</time>
+            <h3 class="timeline__title" data-i18n="chron.1.title">Начало войны</h3>
+            <p class="timeline__text" data-i18n="chron.1.text">Первой на пути врага на белорусской земле встала Брестская крепость. Гарнизон принял бой в первые минуты войны и сражался почти месяц в полном окружении.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/kholm-gate.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1941">Июнь–июль 1941</time>
-            <h3 class="timeline__title">Оборона Брестской крепости</h3>
-            <p class="timeline__text">Защитники Восточного форта во главе с майором Петром Гавриловым держались до конца июля. Крепость стала символом несокрушимого мужества.</p>
+            <time class="timeline__date" datetime="1941" data-i18n="chron.2.date">Июнь–июль 1941</time>
+            <h3 class="timeline__title" data-i18n="chron.2.title">Оборона Брестской крепости</h3>
+            <p class="timeline__text" data-i18n="chron.2.text">Защитники Восточного форта во главе с майором Петром Гавриловым держались до конца июля. Крепость стала символом несокрушимого мужества.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/trastsianets.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date">1941–1944</time>
-            <h3 class="timeline__title">Оккупация и партизанское движение</h3>
-            <p class="timeline__text">Беларусь — «республика-партизанка». Действовали более 1100 отрядов и групп, 374 тысячи партизан и подпольщиков вели борьбу в тылу врага.</p>
+            <time class="timeline__date" data-i18n="chron.3.date">1941–1944</time>
+            <h3 class="timeline__title" data-i18n="chron.3.title">Оккупация и партизанское движение</h3>
+            <p class="timeline__text" data-i18n="chron.3.text">Беларусь — «республика-партизанка». Действовали более 1100 отрядов и групп, 374 тысячи партизан и подпольщиков вели борьбу в тылу врага.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/khatyn.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1943-03-22">22 марта 1943</time>
-            <h3 class="timeline__title">Трагедия Хатыни</h3>
-            <p class="timeline__text">Каратели сожгли деревню Хатынь вместе со 149 жителями, среди которых 75 детей. Хатынь стала символом всех 5295 белорусских деревень, уничтоженных вместе с людьми.</p>
+            <time class="timeline__date" datetime="1943-03-22" data-i18n="chron.4.date">22 марта 1943</time>
+            <h3 class="timeline__title" data-i18n="chron.4.title">Трагедия Хатыни</h3>
+            <p class="timeline__text" data-i18n="chron.4.text">Каратели сожгли деревню Хатынь вместе со 149 жителями, среди которых 75 детей. Хатынь стала символом всех 5295 белорусских деревень, уничтоженных вместе с людьми.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/kurgan.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1944-06-23">23 июня 1944</time>
-            <h3 class="timeline__title">Операция «Багратион»</h3>
-            <p class="timeline__text">Мощное наступление Красной армии, названное в честь русского полководца, началось с освобождения Беларуси и стало одной из крупнейших военных операций в истории.</p>
+            <time class="timeline__date" datetime="1944-06-23" data-i18n="chron.5.date">23 июня 1944</time>
+            <h3 class="timeline__title" data-i18n="chron.5.title">Операция «Багратион»</h3>
+            <p class="timeline__text" data-i18n="chron.5.text">Мощное наступление Красной армии, названное в честь русского полководца, началось с освобождения Беларуси и стало одной из крупнейших военных операций в истории.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/flame-guard.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1944-07-03">3 июля 1944</time>
-            <h3 class="timeline__title">Освобождение Минска</h3>
-            <p class="timeline__text">Столица Беларуси освобождена от оккупантов. С 1996 года эта дата отмечается как День Независимости Республики Беларусь.</p>
+            <time class="timeline__date" datetime="1944-07-03" data-i18n="chron.6.date">3 июля 1944</time>
+            <h3 class="timeline__title" data-i18n="chron.6.title">Освобождение Минска</h3>
+            <p class="timeline__text" data-i18n="chron.6.text">Столица Беларуси освобождена от оккупантов. С 1996 года эта дата отмечается как День Независимости Республики Беларусь.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/brest-stone.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1944-07-28">28 июля 1944</time>
-            <h3 class="timeline__title">Освобождение Бреста</h3>
-            <p class="timeline__text">Территория Беларуси полностью освобождена от немецко-фашистских захватчиков.</p>
+            <time class="timeline__date" datetime="1944-07-28" data-i18n="chron.7.date">28 июля 1944</time>
+            <h3 class="timeline__title" data-i18n="chron.7.title">Освобождение Бреста</h3>
+            <p class="timeline__text" data-i18n="chron.7.text">Территория Беларуси полностью освобождена от немецко-фашистских захватчиков.</p>
           </div>
           <div class="timeline__item reveal">
             <div class="timeline__bg" style="background-image:url('img/flame.jpg')" role="presentation" aria-hidden="true"></div>
-            <time class="timeline__date" datetime="1945-05-09">9 мая 1945</time>
-            <h3 class="timeline__title">День Победы</h3>
-            <p class="timeline__text">Война, унёсшая жизни каждого третьего жителя Беларуси, завершилась Великой Победой. Цену этой Победы мы помним и сегодня.</p>
+            <time class="timeline__date" datetime="1945-05-09" data-i18n="chron.8.date">9 мая 1945</time>
+            <h3 class="timeline__title" data-i18n="chron.8.title">День Победы</h3>
+            <p class="timeline__text" data-i18n="chron.8.text">Война, унёсшая жизни каждого третьего жителя Беларуси, завершилась Великой Победой. Цену этой Победы мы помним и сегодня.</p>
           </div>
         </div>
       </div>
@@ -197,157 +202,157 @@
     <section class="section section--dark" id="heroes">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Герои</p>
-          <h2 class="section-head__title">Их именами названы улицы</h2>
+          <p class="section-head__kicker" data-i18n="heroes.kicker">Герои</p>
+          <h2 class="section-head__title" data-i18n="heroes.title">Их именами названы улицы</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
-        <p class="section-lead reveal">2026 год в Беларуси объявлен Годом женщины. Среди героев этой подборки — 10 женщин, приближавших Победу.</p>
+        <p class="section-lead reveal" data-i18n="heroes.lead">2026 год в Беларуси объявлен Годом женщины. Среди героев этой подборки — 10 женщин, приближавших Победу.</p>
 
         <div class="heroes-grid">
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#8c5a1f">ВХ</div>
-              <img width="237" height="300" src="img/heroes/hero-khoruzhaya.jpg" alt="Вера Хоружая" loading="lazy">
+              <img width="237" height="300" src="img/heroes/hero-khoruzhaya.jpg" alt="Вера Хоружая" loading="lazy" data-i18n-alt="hero.1.name">
             </div>
-            <h3 class="hero-card__name">Вера Хоружая</h3>
-            <p class="hero-card__role">Подпольщица, писательница</p>
-            <p class="hero-card__text">Возглавляла подполье в Витебске, передавала разведданные партизанам. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.1.name">Вера Хоружая</h3>
+            <p class="hero-card__role" data-i18n="hero.1.role">Подпольщица, писательница</p>
+            <p class="hero-card__text" data-i18n="hero.1.text">Возглавляла подполье в Витебске, передавала разведданные партизанам. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a6b4f">ЗП</div>
-              <img width="582" height="700" src="img/heroes/hero-portnova.jpg" alt="Зина Портнова" loading="lazy">
+              <img width="582" height="700" src="img/heroes/hero-portnova.jpg" alt="Зина Портнова" loading="lazy" data-i18n-alt="hero.2.name">
             </div>
-            <h3 class="hero-card__name">Зина Портнова</h3>
-            <p class="hero-card__role">Юная подпольщица</p>
-            <p class="hero-card__text">Участвовала в подполье в Витебской области: распространяла листовки, устраивала диверсии. Замучена фашистами. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.2.name">Зина Портнова</h3>
+            <p class="hero-card__role" data-i18n="hero.2.role">Юная подпольщица</p>
+            <p class="hero-card__text" data-i18n="hero.2.text">Участвовала в подполье в Витебской области: распространяла листовки, устраивала диверсии. Замучена фашистами. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#a6272b">ЕМ</div>
-              <img width="432" height="600" src="img/heroes/hero-mazanik.jpg" alt="Елена Мазаник" loading="lazy">
+              <img width="432" height="600" src="img/heroes/hero-mazanik.jpg" alt="Елена Мазаник" loading="lazy" data-i18n-alt="hero.3.name">
             </div>
-            <h3 class="hero-card__name">Елена Мазаник</h3>
-            <p class="hero-card__role">Минская подпольщица</p>
-            <p class="hero-card__text">Сотрудница штабной столовой ликвидировала гауляйтера Беларуси Вильгельма Кубе. Герой Советского Союза (1943).</p>
+            <h3 class="hero-card__name" data-i18n="hero.3.name">Елена Мазаник</h3>
+            <p class="hero-card__role" data-i18n="hero.3.role">Минская подпольщица</p>
+            <p class="hero-card__text" data-i18n="hero.3.text">Сотрудница штабной столовой ликвидировала гауляйтера Беларуси Вильгельма Кубе. Герой Советского Союза (1943).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#8c5a1f">МО</div>
-              <img width="430" height="600" src="img/heroes/hero-osipova.jpg" alt="Мария Осипова" loading="lazy">
+              <img width="430" height="600" src="img/heroes/hero-osipova.jpg" alt="Мария Осипова" loading="lazy" data-i18n-alt="hero.4.name">
             </div>
-            <h3 class="hero-card__name">Мария Осипова</h3>
-            <p class="hero-card__role">Подпольщица</p>
-            <p class="hero-card__text">Передала Елене Мазаник мину, уничтожившую гауляйтера Вильгельма Кубе. Герой Советского Союза (1943).</p>
+            <h3 class="hero-card__name" data-i18n="hero.4.name">Мария Осипова</h3>
+            <p class="hero-card__role" data-i18n="hero.4.role">Подпольщица</p>
+            <p class="hero-card__text" data-i18n="hero.4.text">Передала Елене Мазаник мину, уничтожившую гауляйтера Вильгельма Кубе. Герой Советского Союза (1943).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a4a36">НТ</div>
-              <img width="333" height="513" src="img/heroes/hero-troyan.jpg" alt="Надежда Троян" loading="lazy">
+              <img width="333" height="513" src="img/heroes/hero-troyan.jpg" alt="Надежда Троян" loading="lazy" data-i18n-alt="hero.5.name">
             </div>
-            <h3 class="hero-card__name">Надежда Троян</h3>
-            <p class="hero-card__role">Разведчица, врач</p>
-            <p class="hero-card__text">Участвовала в подготовке покушения на гауляйтера Кубе. После войны стала врачом. Герой Советского Союза (1943).</p>
+            <h3 class="hero-card__name" data-i18n="hero.5.name">Надежда Троян</h3>
+            <p class="hero-card__role" data-i18n="hero.5.role">Разведчица, врач</p>
+            <p class="hero-card__text" data-i18n="hero.5.text">Участвовала в подготовке покушения на гауляйтера Кубе. После войны стала врачом. Герой Советского Союза (1943).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a6b4f">ТМ</div>
-              <img width="180" height="251" src="img/heroes/hero-marinenko.jpg" alt="Татьяна Мариненко" loading="lazy">
+              <img width="180" height="251" src="img/heroes/hero-marinenko.jpg" alt="Татьяна Мариненко" loading="lazy" data-i18n-alt="hero.6.name">
             </div>
-            <h3 class="hero-card__name">Татьяна Мариненко</h3>
-            <p class="hero-card__role">Партизанка-разведчица</p>
-            <p class="hero-card__text">Учительница, связная бригады «Неуловимые». Арестована по доносу, замучена фашистами. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.6.name">Татьяна Мариненко</h3>
+            <p class="hero-card__role" data-i18n="hero.6.role">Партизанка-разведчица</p>
+            <p class="hero-card__text" data-i18n="hero.6.text">Учительница, связная бригады «Неуловимые». Арестована по доносу, замучена фашистами. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#a6272b">ЕК</div>
-              <img width="364" height="507" src="img/heroes/hero-kolesova.jpg" alt="Елена Колесова" loading="lazy">
+              <img width="364" height="507" src="img/heroes/hero-kolesova.jpg" alt="Елена Колесова" loading="lazy" data-i18n-alt="hero.7.name">
             </div>
-            <h3 class="hero-card__name">Елена Колесова</h3>
-            <p class="hero-card__role">Партизанка-диверсантка</p>
-            <p class="hero-card__text">Командир женской диверсионной группы в тылу врага на Витебщине. Погибла в бою. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.7.name">Елена Колесова</h3>
+            <p class="hero-card__role" data-i18n="hero.7.role">Партизанка-диверсантка</p>
+            <p class="hero-card__text" data-i18n="hero.7.text">Командир женской диверсионной группы в тылу врага на Витебщине. Погибла в бою. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#8c5a1f">ЗТ</div>
-              <img width="308" height="397" src="img/heroes/hero-tusnolobova.jpg" alt="Зинаида Туснолобова-Марченко" loading="lazy">
+              <img width="308" height="397" src="img/heroes/hero-tusnolobova.jpg" alt="Зинаида Туснолобова-Марченко" loading="lazy" data-i18n-alt="hero.8.name">
             </div>
-            <h3 class="hero-card__name">Зинаида Туснолобова-Марченко</h3>
-            <p class="hero-card__role">Санинструктор</p>
-            <p class="hero-card__text">Вынесла с поля боя 123 раненых. Потеряв руки и ноги, осталась символом мужества. Герой Советского Союза.</p>
+            <h3 class="hero-card__name" data-i18n="hero.8.name">Зинаида Туснолобова-Марченко</h3>
+            <p class="hero-card__role" data-i18n="hero.8.role">Санинструктор</p>
+            <p class="hero-card__text" data-i18n="hero.8.text">Вынесла с поля боя 123 раненых. Потеряв руки и ноги, осталась символом мужества. Герой Советского Союза.</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a4a36">ОЩ</div>
-              <img width="330" height="480" src="img/heroes/hero-shcherbacevich.jpg" alt="Ольга Щербацевич" loading="lazy">
+              <img width="330" height="480" src="img/heroes/hero-shcherbacevich.jpg" alt="Ольга Щербацевич" loading="lazy" data-i18n-alt="hero.9.name">
             </div>
-            <h3 class="hero-card__name">Ольга Щербацевич</h3>
-            <p class="hero-card__role">Минская подпольщица</p>
-            <p class="hero-card__text">Укрывала раненых красноармейцев. Казнена фашистами в Минске вместе с сыном Володей. Фото «мать перед казнью» обошло весь мир.</p>
+            <h3 class="hero-card__name" data-i18n="hero.9.name">Ольга Щербацевич</h3>
+            <p class="hero-card__role" data-i18n="hero.9.role">Минская подпольщица</p>
+            <p class="hero-card__text" data-i18n="hero.9.text">Укрывала раненых красноармейцев. Казнена фашистами в Минске вместе с сыном Володей. Фото «мать перед казнью» обошло весь мир.</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a6b4f">РШ</div>
-              <img width="492" height="593" src="img/heroes/hero-shershneva.jpg" alt="Римма Шершнёва" loading="lazy">
+              <img width="492" height="593" src="img/heroes/hero-shershneva.jpg" alt="Римма Шершнёва" loading="lazy" data-i18n-alt="hero.10.name">
             </div>
-            <h3 class="hero-card__name">Римма Шершнёва</h3>
-            <p class="hero-card__role">Партизанка-разведчица</p>
-            <p class="hero-card__text">Первая и единственная женщина, закрывшая собой амбразуру вражеского дзота. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.10.name">Римма Шершнёва</h3>
+            <p class="hero-card__role" data-i18n="hero.10.role">Партизанка-разведчица</p>
+            <p class="hero-card__text" data-i18n="hero.10.text">Первая и единственная женщина, закрывшая собой амбразуру вражеского дзота. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#a6272b">ПГ</div>
-              <img width="440" height="617" src="img/heroes/hero-gavrilov.jpg" alt="Пётр Гаврилов" loading="lazy">
+              <img width="440" height="617" src="img/heroes/hero-gavrilov.jpg" alt="Пётр Гаврилов" loading="lazy" data-i18n-alt="hero.11.name">
             </div>
-            <h3 class="hero-card__name">Пётр Гаврилов</h3>
-            <p class="hero-card__role">Майор, Герой Советского Союза</p>
-            <p class="hero-card__text">Руководил обороной Восточного форта Брестской крепости. Попал в плен лишь в конце июля 1941 года, будучи тяжело раненым.</p>
+            <h3 class="hero-card__name" data-i18n="hero.11.name">Пётр Гаврилов</h3>
+            <p class="hero-card__role" data-i18n="hero.11.role">Майор, Герой Советского Союза</p>
+            <p class="hero-card__text" data-i18n="hero.11.text">Руководил обороной Восточного форта Брестской крепости. Попал в плен лишь в конце июля 1941 года, будучи тяжело раненым.</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo" style="--obj: center">
               <div class="hero-card__letter" style="--c:#3a6b4f">КЗ</div>
-              <img width="179" height="259" src="img/heroes/hero-zaslonov.jpg" alt="Константин Заслонов" loading="lazy">
+              <img width="179" height="259" src="img/heroes/hero-zaslonov.jpg" alt="Константин Заслонов" loading="lazy" data-i18n-alt="hero.12.name">
             </div>
-            <h3 class="hero-card__name">Константин Заслонов</h3>
-            <p class="hero-card__role">Командир партизанской бригады</p>
-            <p class="hero-card__text">Организовал подполье в Орше, громил вражеские гарнизоны. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.12.name">Константин Заслонов</h3>
+            <p class="hero-card__role" data-i18n="hero.12.role">Командир партизанской бригады</p>
+            <p class="hero-card__text" data-i18n="hero.12.text">Организовал подполье в Орше, громил вражеские гарнизоны. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a4a36">ПМ</div>
-              <img width="269" height="400" src="img/heroes/hero-masherov.jpg" alt="Пётр Машеров" loading="lazy">
+              <img width="269" height="400" src="img/heroes/hero-masherov.jpg" alt="Пётр Машеров" loading="lazy" data-i18n-alt="hero.13.name">
             </div>
-            <h3 class="hero-card__name">Пётр Машеров</h3>
-            <p class="hero-card__role">Руководитель партизанского движения</p>
-            <p class="hero-card__text">Командовал партизанской бригадой в Витебской области. Герой Советского Союза, позже возглавлял БССР.</p>
+            <h3 class="hero-card__name" data-i18n="hero.13.name">Пётр Машеров</h3>
+            <p class="hero-card__role" data-i18n="hero.13.role">Руководитель партизанского движения</p>
+            <p class="hero-card__text" data-i18n="hero.13.text">Командовал партизанской бригадой в Витебской области. Герой Советского Союза, позже возглавлял БССР.</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#a6272b">МК</div>
-              <img width="400" height="450" src="img/heroes/hero-kazei.jpg" alt="Марат Казей" loading="lazy">
+              <img width="400" height="450" src="img/heroes/hero-kazei.jpg" alt="Марат Казей" loading="lazy" data-i18n-alt="hero.14.name">
             </div>
-            <h3 class="hero-card__name">Марат Казей</h3>
-            <p class="hero-card__role">Юный партизан-разведчик</p>
-            <p class="hero-card__text">Пионер из деревни Станьково Дзержинского района. Погиб в бою в 14 лет, взорвав себя гранатой. Герой Советского Союза (посмертно).</p>
+            <h3 class="hero-card__name" data-i18n="hero.14.name">Марат Казей</h3>
+            <p class="hero-card__role" data-i18n="hero.14.role">Юный партизан-разведчик</p>
+            <p class="hero-card__text" data-i18n="hero.14.text">Пионер из деревни Станьково Дзержинского района. Погиб в бою в 14 лет, взорвав себя гранатой. Герой Советского Союза (посмертно).</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#8c5a1f">ИЯ</div>
-              <img width="500" height="497" src="img/heroes/hero-yakubovsky.jpg" alt="Иван Якубовский" loading="lazy">
+              <img width="500" height="497" src="img/heroes/hero-yakubovsky.jpg" alt="Иван Якубовский" loading="lazy" data-i18n-alt="hero.15.name">
             </div>
-            <h3 class="hero-card__name">Иван Якубовский</h3>
-            <p class="hero-card__role">Дважды Герой Советского Союза, Маршал</p>
-            <p class="hero-card__text">Уроженец Беларуси. Отличился при освобождении республики и в Берлинской операции. Участвовал в Параде Победы 1945 года.</p>
+            <h3 class="hero-card__name" data-i18n="hero.15.name">Иван Якубовский</h3>
+            <p class="hero-card__role" data-i18n="hero.15.role">Дважды Герой Советского Союза, Маршал</p>
+            <p class="hero-card__text" data-i18n="hero.15.text">Уроженец Беларуси. Отличился при освобождении республики и в Берлинской операции. Участвовал в Параде Победы 1945 года.</p>
           </article>
           <article class="hero-card reveal">
             <div class="hero-card__photo">
               <div class="hero-card__letter" style="--c:#3a4a36">НГ</div>
-              <img width="500" height="699" src="img/heroes/hero-gastello.jpg" alt="Николай Гастелло" loading="lazy">
+              <img width="500" height="699" src="img/heroes/hero-gastello.jpg" alt="Николай Гастелло" loading="lazy" data-i18n-alt="hero.16.name">
             </div>
-            <h3 class="hero-card__name">Николай Гастелло</h3>
-            <p class="hero-card__role">Лётчик, Герой Советского Союза</p>
-            <p class="hero-card__text">Направил горящий самолёт на колонну врага — «огненный таран» совершён над белорусской землёй под Радошковичами.</p>
+            <h3 class="hero-card__name" data-i18n="hero.16.name">Николай Гастелло</h3>
+            <p class="hero-card__role" data-i18n="hero.16.role">Лётчик, Герой Советского Союза</p>
+            <p class="hero-card__text" data-i18n="hero.16.text">Направил горящий самолёт на колонну врага — «огненный таран» совершён над белорусской землёй под Радошковичами.</p>
           </article>
         </div>
       </div>
@@ -357,96 +362,96 @@
     <section class="section" id="memory">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Места памяти</p>
-          <h2 class="section-head__title">Мемориалы Беларуси</h2>
+          <p class="section-head__kicker" data-i18n="memory.kicker">Места памяти</p>
+          <h2 class="section-head__title" data-i18n="memory.title">Мемориалы Беларуси</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
-        <p class="section-lead reveal">Нажмите на карточку, чтобы раскрыть историю мемориала. Клик по фотографии — рассмотреть её крупнее.</p>
+        <p class="section-lead reveal" data-i18n="memory.lead">Нажмите на карточку, чтобы раскрыть историю мемориала. Клик по фотографии — рассмотреть её крупнее.</p>
 
         <div class="gallery" id="gallery">
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="2283" src="img/hero.jpg" alt="Мемориал «Брестская крепость-герой»: монумент с израненной фасадом цитаделью" loading="lazy">
+              <img width="1280" height="2283" src="img/hero.jpg" alt="Мемориал «Брестская крепость-герой»: монумент с израненной фасадом цитаделью" loading="lazy" data-i18n-alt="gal.1.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">1971</span>
-              <h3>Брестская крепость-герой</h3>
-              <p class="gallery__short">Мемориал в память о защитниках крепости, принявших первый удар войны. По решению 1965 года крепости присвоено звание «Крепость-герой».</p>
+              <h3 data-i18n="gal.1.name">Брестская крепость-герой</h3>
+              <p class="gallery__short" data-i18n="gal.1.short">Мемориал в память о защитниках крепости, принявших первый удар войны. По решению 1965 года крепости присвоено звание «Крепость-герой».</p>
               <div class="gallery__expand" hidden>
-                <p>Гарнизон оборонялся с 22 июня до конца июля 1941 года — даже после того, как фронт ушёл далеко на восток. Мемориал открыт в сентябре 1971 года: скульптура «Мужество», стометровый штык-обелиск, площадь Церемониалов и Вечный огонь. Имена многих защитников остались неизвестны, но память о них хранят руины казарм.</p>
+                <p data-i18n="gal.1.full">Гарнизон оборонялся с 22 июня до конца июля 1941 года — даже после того, как фронт ушёл далеко на восток. Мемориал открыт в сентябре 1971 года: скульптура «Мужество», стометровый штык-обелиск, площадь Церемониалов и Вечный огонь. Имена многих защитников остались неизвестны, но память о них хранят руины казарм.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="251" src="img/khatyn.jpg" alt="Мемориальный комплекс «Хатынь»: бывшие улицы сгоревшей деревни" loading="lazy">
+              <img width="1280" height="251" src="img/khatyn.jpg" alt="Мемориальный комплекс «Хатынь»: бывшие улицы сгоревшей деревни" loading="lazy" data-i18n-alt="gal.2.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">1969</span>
-              <h3>Хатынь</h3>
-              <p class="gallery__short">Символ всех белорусских деревень, уничтоженных вместе с жителями. Колокола Хатыни звонят каждые 30 секунд.</p>
+              <h3 data-i18n="gal.2.name">Хатынь</h3>
+              <p class="gallery__short" data-i18n="gal.2.short">Символ всех белорусских деревень, уничтоженных вместе с жителями. Колокола Хатыни звонят каждые 30 секунд.</p>
               <div class="gallery__expand" hidden>
-                <p>22 марта 1943 года каратели сожгли деревню вместе со 149 жителями, среди них 75 детей. В 1969 году здесь открыт мемориал: бронзовая скульптура «Непокорённый человек» — отец с погибшим сыном на руках, «Кладбище деревень» и трубы-обелиски на месте сгоревших домов. Ворота мемориала напоминают о сотнях деревень, разделивших судьбу Хатыни.</p>
+                <p data-i18n="gal.2.full">22 марта 1943 года каратели сожгли деревню вместе со 149 жителями, среди них 75 детей. В 1969 году здесь открыт мемориал: бронзовая скульптура «Непокорённый человек» — отец с погибшим сыном на руках, «Кладбище деревень» и трубы-обелиски на месте сгоревших домов. Ворота мемориала напоминают о сотнях деревень, разделивших судьбу Хатыни.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="850" src="img/kurgan.jpg" alt="Курган Славы под Минском в День Победы" loading="lazy">
+              <img width="1280" height="850" src="img/kurgan.jpg" alt="Курган Славы под Минском в День Победы" loading="lazy" data-i18n-alt="gal.3.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">1969</span>
-              <h3>Курган Славы</h3>
-              <p class="gallery__short">Возведён в честь воинов Красной армии, освобождавших Беларусь. Землю для кургана привозили со всех уголков СССР.</p>
+              <h3 data-i18n="gal.3.name">Курган Славы</h3>
+              <p class="gallery__short" data-i18n="gal.3.short">Возведён в честь воинов Красной армии, освобождавших Беларусь. Землю для кургана привозили со всех уголков СССР.</p>
               <div class="gallery__expand" hidden>
-                <p>Открыт 5 июля 1969 года к 25-летию освобождения Беларуси. Четыре штыка-обелиска символизируют четыре фронта, участвовавшие в операции «Багратион». Землю для насыпи доставляли из городов-героев и с полей сражений — как дань памяти павшим.</p>
+                <p data-i18n="gal.3.full">Открыт 5 июля 1969 года к 25-летию освобождения Беларуси. Четыре штыка-обелиска символизируют четыре фронта, участвовавшие в операции «Багратион». Землю для насыпи доставляли из городов-героев и с полей сражений — как дань памяти павшим.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="1920" src="img/victory-minsk.jpg" alt="Вечный огонь у Монумента Победы на площади Победы в Минске" loading="lazy">
+              <img width="1280" height="1920" src="img/victory-minsk.jpg" alt="Вечный огонь у Монумента Победы на площади Победы в Минске" loading="lazy" data-i18n-alt="gal.4.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">1954</span>
-              <h3>Монумент Победы</h3>
-              <p class="gallery__short">Обелиск на площади Победы в Минске. У его подножия с 1961 года горит Вечный огонь в память о павших.</p>
+              <h3 data-i18n="gal.4.name">Монумент Победы</h3>
+              <p class="gallery__short" data-i18n="gal.4.short">Обелиск на площади Победы в Минске. У его подножия с 1961 года горит Вечный огонь в память о павших.</p>
               <div class="gallery__expand" hidden>
-                <p>Воздвигнут в 1954 году в честь победы в Великой Отечественной войне. Четырёхгранный обелиск увенчан орденом Победы, у подножия — бронзовые фигуры воинов. В 1961 году у мемориала зажжён Вечный огонь, и уже более шести десятилетий минчане приносят сюда цветы.</p>
+                <p data-i18n="gal.4.full">Воздвигнут в 1954 году в честь победы в Великой Отечественной войне. Четырёхгранный обелиск увенчан орденом Победы, у подножия — бронзовые фигуры воинов. В 1961 году у мемориала зажжён Вечный огонь, и уже более шести десятилетий минчане приносят сюда цветы.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="850" src="img/stalin.jpg" alt="Историко-культурный комплекс «Линия Сталина» под Минском" loading="lazy">
+              <img width="1280" height="850" src="img/stalin.jpg" alt="Историко-культурный комплекс «Линия Сталина» под Минском" loading="lazy" data-i18n-alt="gal.5.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">2005</span>
-              <h3>Линия Сталина</h3>
-              <p class="gallery__short">Историко-культурный комплекс на месте Минского укрепрайона 1930-х годов. Доты, техника и окопы — живой музей войны под открытым небом.</p>
+              <h3 data-i18n="gal.5.name">Линия Сталина</h3>
+              <p class="gallery__short" data-i18n="gal.5.short">Историко-культурный комплекс на месте Минского укрепрайона 1930-х годов. Доты, техника и окопы — живой музей войны под открытым небом.</p>
               <div class="gallery__expand" hidden>
-                <p>Комплекс воссоздаёт укрепрайон, строившийся в 1928–1939 годах для прикрытия Минска. Здесь можно заглянуть в настоящие доты, пройти по ходам сообщения, увидеть артиллерию и бронетехнику. Проводятся реконструкции боёв — история оживает на глазах.</p>
+                <p data-i18n="gal.5.full">Комплекс воссоздаёт укрепрайон, строившийся в 1928–1939 годах для прикрытия Минска. Здесь можно заглянуть в настоящие доты, пройти по ходам сообщения, увидеть артиллерию и бронетехнику. Проводятся реконструкции боёв — история оживает на глазах.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
           <figure class="gallery__item reveal">
             <div class="gallery__photo" tabindex="0" role="button" aria-label="Увеличить фотографию">
-              <img width="1280" height="960" src="img/trastsianets.jpg" alt="Мемориал «Тростенец» — место памяти жертв крупнейшего лагеря смерти" loading="lazy">
+              <img width="1280" height="960" src="img/trastsianets.jpg" alt="Мемориал «Тростенец» — место памяти жертв крупнейшего лагеря смерти" loading="lazy" data-i18n-alt="gal.6.alt">
             </div>
             <figcaption class="gallery__caption">
               <span class="gallery__year">2015</span>
-              <h3>Тростенец</h3>
-              <p class="gallery__short">Крупнейший лагерь смерти на территории Беларуси: здесь погибли более 200 тысяч человек. Мемориал открыт к 70-летию Победы.</p>
+              <h3 data-i18n="gal.6.name">Тростенец</h3>
+              <p class="gallery__short" data-i18n="gal.6.short">Крупнейший лагерь смерти на территории Беларуси: здесь погибли более 200 тысяч человек. Мемориал открыт к 70-летию Победы.</p>
               <div class="gallery__expand" hidden>
-                <p>Малый Тростенец — крупнейший нацистский лагерь смерти на территории Беларуси и один из крупнейших в Европе. Жертв расстреливали в урочище Благовщина, тела сжигали в Шашковке. В 2015–2018 годах здесь создан мемориальный комплекс в память о более чем 200 тысячах погибших.</p>
+                <p data-i18n="gal.6.full">Малый Тростенец — крупнейший нацистский лагерь смерти на территории Беларуси и один из крупнейших в Европе. Жертв расстреливали в урочище Благовщина, тела сжигали в Шашковке. В 2015–2018 годах здесь создан мемориальный комплекс в память о более чем 200 тысячах погибших.</p>
               </div>
-              <button class="gallery__more" type="button" aria-expanded="false">Читать далее</button>
+              <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
         </div>
@@ -459,8 +464,8 @@
       <div class="candle-veil"></div>
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Свеча памяти</p>
-          <h2 class="section-head__title">Зажги свечу в память о героях</h2>
+          <p class="section-head__kicker" data-i18n="candle.kicker">Свеча памяти</p>
+          <h2 class="section-head__title" data-i18n="candle.title">Зажги свечу в память о героях</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
@@ -474,7 +479,7 @@
 
         <div class="candle-counter reveal">
           <p id="candle-msg">Нажмите на свечу, чтобы зажечь её в память о героях.</p>
-          <p>Всего зажжено: <strong id="candle-total">0</strong> <span id="candle-total-word">свечей</span></p>
+          <p><span data-i18n="candle.totalLabel">Всего зажжено:</span> <strong id="candle-total">0</strong> <span id="candle-total-word">свечей</span></p>
         </div>
       </div>
     </section>
@@ -483,8 +488,8 @@
     <section class="section section--dark" id="dialogue">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Диалог поколений</p>
-          <h2 class="section-head__title">Как молодёжь хранит память</h2>
+          <p class="section-head__kicker" data-i18n="dialogue.kicker">Диалог поколений</p>
+          <h2 class="section-head__title" data-i18n="dialogue.title">Как молодёжь хранит память</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
@@ -493,29 +498,29 @@
             <span class="dialogue-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="42" height="42"><path fill="currentColor" d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4zm-2 6V6a2 2 0 1 1 4 0v2h-4zm0 6.2V17a2 2 0 1 0 4 0v-2.8a3 3 0 1 0-4 0z"/></svg>
             </span>
-            <h3>Поисковые отряды</h3>
-            <p>Молодёжь поднимает останки бойцов в местах боёв, устанавливает имена по солдатским медальонам, возвращает забытых героев семьям.</p>
+            <h3 data-i18n="dial.1.title">Поисковые отряды</h3>
+            <p data-i18n="dial.1.text">Молодёжь поднимает останки бойцов в местах боёв, устанавливает имена по солдатским медальонам, возвращает забытых героев семьям.</p>
           </article>
           <article class="dialogue-card reveal">
             <span class="dialogue-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="42" height="42"><path fill="currentColor" d="M12 21s-7.5-4.6-10-9.3C.4 8.6 2.3 5 5.8 5c2 0 3.6 1 4.7 2.6L12 10l1.5-2.4C14.6 6 16.2 5 18.2 5c3.5 0 5.4 3.6 3.8 6.7C19.5 16.4 12 21 12 21z"/></svg>
             </span>
-            <h3>Волонтёры памяти</h3>
-            <p>Уход за памятниками и братскими могилами, помощь ветеранам, акции «Беларусь помнит» и «Бессмертный полк» — тысячи юных добровольцев.</p>
+            <h3 data-i18n="dial.2.title">Волонтёры памяти</h3>
+            <p data-i18n="dial.2.text">Уход за памятниками и братскими могилами, помощь ветеранам, акции «Беларусь помнит» и «Бессмертный полк» — тысячи юных добровольцев.</p>
           </article>
           <article class="dialogue-card reveal">
             <span class="dialogue-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="42" height="42"><path fill="currentColor" d="M6 2h12a2 2 0 0 1 2 2v16l-3-2-3 2-2-2-2 2-3-2-3 2V4a2 2 0 0 1 2-2zm3 7v2h6V9H9zm0 4v2h4v-2H9z"/></svg>
             </span>
-            <h3>Музеи и архивы</h3>
-            <p>Школьные музеи, оцифровка документов и фотографий, интернет-базы «Память народа» и «Партизаны Беларуси» делают историю доступной каждому.</p>
+            <h3 data-i18n="dial.3.title">Музеи и архивы</h3>
+            <p data-i18n="dial.3.text">Школьные музеи, оцифровка документов и фотографий, интернет-базы «Память народа» и «Партизаны Беларуси» делают историю доступной каждому.</p>
           </article>
           <article class="dialogue-card reveal">
             <span class="dialogue-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="42" height="42"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm-1.5 6.5L7 13h3l-1.5 4 5.5-5.5h-3l1.5-3z"/></svg>
             </span>
-            <h3>Встречи поколений</h3>
-            <p>Уроки мужества, воспоминания очевидцев, семейные реликвии и письма с фронта — нить памяти, протянутая от прадедов к правнукам.</p>
+            <h3 data-i18n="dial.4.title">Встречи поколений</h3>
+            <p data-i18n="dial.4.text">Уроки мужества, воспоминания очевидцев, семейные реликвии и письма с фронта — нить памяти, протянутая от прадедов к правнукам.</p>
           </article>
         </div>
       </div>
@@ -525,21 +530,21 @@
     <section class="section" id="regiment">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Бессмертный полк</p>
-          <h2 class="section-head__title">Бессмертный полк нашей памяти</h2>
+          <p class="section-head__kicker" data-i18n="regiment.kicker">Бессмертный полк</p>
+          <h2 class="section-head__title" data-i18n="regiment.title">Бессмертный полк нашей памяти</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
-        <p class="section-lead reveal">
+        <p class="section-lead reveal" data-i18n="regiment.lead">
           Расскажите о своём родственнике — участнике Великой Отечественной войны, партизане, труженике тыла
           или узнике концлагеря. После проверки модератором ветеран навсегда попадёт в общий полк.
         </p>
 
         <div class="regiment-toolbar reveal">
-          <p class="regiment-count">В полку: <strong id="regiment-count">0 ветеранов</strong></p>
+          <p class="regiment-count"><span data-i18n="regiment.countLabel">В полку:</span> <strong id="regiment-count">0 ветеранов</strong></p>
           <label class="regiment-search">
-            <span class="visually-hidden">Поиск по полку</span>
-            <input type="search" id="regiment-search" placeholder="Поиск по фамилии, званию, месту…">
+            <span class="visually-hidden" data-i18n="regiment.searchLabel">Поиск по полку</span>
+            <input type="search" id="regiment-search" placeholder="Поиск по фамилии, званию, месту…" data-i18n-placeholder="regiment.searchPh">
           </label>
         </div>
 
@@ -551,38 +556,38 @@
           </div>
 
           <form class="regiment-form reveal" id="regiment-form">
-            <h3 class="regiment-form__title">Добавить ветерана в полк</h3>
+            <h3 class="regiment-form__title" data-i18n="regiment.formTitle">Добавить ветерана в полк</h3>
             <label>
-              <span>Фамилия, имя, отчество</span>
-              <input type="text" id="reg-name" required placeholder="Иванов Иван Иванович" maxlength="80">
+              <span data-i18n="regiment.f.name">Фамилия, имя, отчество</span>
+              <input type="text" id="reg-name" required placeholder="Иванов Иван Иванович" maxlength="80" data-i18n-placeholder="regiment.f.namePh">
             </label>
             <label>
-              <span>Годы жизни</span>
-              <input type="text" id="reg-years" placeholder="1909–1944" maxlength="30">
+              <span data-i18n="regiment.f.years">Годы жизни</span>
+              <input type="text" id="reg-years" placeholder="1909–1944" maxlength="30" data-i18n-placeholder="regiment.f.yearsPh">
             </label>
             <label>
-              <span>Кем был на войне</span>
-              <input type="text" id="reg-rank" placeholder="Партизан, красноармеец, труженик тыла…" maxlength="90">
+              <span data-i18n="regiment.f.rank">Кем был на войне</span>
+              <input type="text" id="reg-rank" placeholder="Партизан, красноармеец, труженик тыла…" maxlength="90" data-i18n-placeholder="regiment.f.rankPh">
             </label>
             <label>
-              <span>Город, район, деревня</span>
-              <input type="text" id="reg-place" placeholder="Например: Логойский район" maxlength="90">
+              <span data-i18n="regiment.f.place">Город, район, деревня</span>
+              <input type="text" id="reg-place" placeholder="Например: Логойский район" maxlength="90" data-i18n-placeholder="regiment.f.placePh">
             </label>
             <label>
-              <span>История ветерана</span>
-              <textarea id="reg-text" required rows="4" maxlength="2000" placeholder="Расскажите, что помнят в вашей семье…"></textarea>
+              <span data-i18n="regiment.f.text">История ветерана</span>
+              <textarea id="reg-text" required rows="4" maxlength="2000" placeholder="Расскажите, что помнят в вашей семье…" data-i18n-placeholder="regiment.f.textPh"></textarea>
             </label>
             <label>
-              <span>Ваше имя (кого записать в благодарность)</span>
-              <input type="text" id="reg-author" required placeholder="Историю добавил(а)…" maxlength="60">
+              <span data-i18n="regiment.f.author">Ваше имя (кого записать в благодарность)</span>
+              <input type="text" id="reg-author" required placeholder="Историю добавил(а)…" maxlength="60" data-i18n-placeholder="regiment.f.authorPh">
             </label>
             <label>
-              <span>Фотография ветерана (необязательно)</span>
+              <span data-i18n="regiment.f.photo">Фотография ветерана (необязательно)</span>
               <input type="file" id="regiment-photo" accept="image/*">
               <div class="regiment-photo-preview" id="regiment-photo-preview"></div>
             </label>
-            <button class="btn btn--primary btn--block" type="submit">Отправить на модерацию</button>
-            <p class="regiment-form__hint">Заявку проверит модератор.</p>
+            <button class="btn btn--primary btn--block" type="submit" data-i18n="regiment.submit">Отправить на модерацию</button>
+            <p class="regiment-form__hint" data-i18n="regiment.hint">Заявку проверит модератор.</p>
           </form>
         </div>
       </div>
@@ -592,8 +597,8 @@
     <section class="section section--dark" id="quiz">
       <div class="container quiz-wrap">
         <header class="section-head reveal">
-          <p class="section-head__kicker">Викторина</p>
-          <h2 class="section-head__title">Проверь свою память</h2>
+          <p class="section-head__kicker" data-i18n="quiz.kicker">Викторина</p>
+          <h2 class="section-head__title" data-i18n="quiz.title">Проверь свою память</h2>
           <p class="section-head__ornament" aria-hidden="true">✦</p>
         </header>
 
@@ -619,23 +624,23 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__col">
-        <p class="footer__brand">«Связь поколений: мы помним»</p>
-        <p class="footer__text">Интерактивный проект о сохранении исторической памяти о Великой Отечественной войне, героическом прошлом белорусского народа и диалоге поколений.</p>
+        <p class="footer__brand" data-i18n="footer.brand">«Связь поколений: мы помним»</p>
+        <p class="footer__text" data-i18n="footer.text">Интерактивный проект о сохранении исторической памяти о Великой Отечественной войне, героическом прошлом белорусского народа и диалоге поколений.</p>
       </div>
       <div class="footer__col">
-        <p class="footer__head">Разделы</p>
+        <p class="footer__head" data-i18n="footer.headSections">Разделы</p>
         <ul class="footer__links">
-          <li><a href="#about">О проекте</a></li>
-          <li><a href="#chronicle">Хроника</a></li>
-          <li><a href="#heroes">Герои</a></li>
-          <li><a href="#memory">Места памяти</a></li>
-          <li><a href="#regiment">Бессмертный полк</a></li>
-          <li><a href="#quiz">Викторина</a></li>
+          <li><a href="#about" data-i18n="nav.about">О проекте</a></li>
+          <li><a href="#chronicle" data-i18n="nav.chronicle">Хроника</a></li>
+          <li><a href="#heroes" data-i18n="nav.heroes">Герои</a></li>
+          <li><a href="#memory" data-i18n="nav.memory">Места памяти</a></li>
+          <li><a href="#regiment" data-i18n="nav.regiment">Бессмертный полк</a></li>
+          <li><a href="#quiz" data-i18n="nav.quiz">Викторина</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <p class="footer__head">Фотографии</p>
-        <p class="footer__text">Фото мемориалов — из открытого архива Wikimedia Commons (свободные лицензии):<br>
+        <p class="footer__head" data-i18n="footer.headPhotos">Фотографии</p>
+        <p class="footer__text" data-i18n-html="footer.photos1">Фото мемориалов — из открытого архива Wikimedia Commons (свободные лицензии):<br>
           <a href="https://commons.wikimedia.org/wiki/Category:Brest_Hero_Fortress" target="_blank" rel="noopener">Брестская крепость</a> ·
           <a href="https://commons.wikimedia.org/wiki/Category:Khatyn_memorial_complex" target="_blank" rel="noopener">Хатынь</a> ·
           <a href="https://commons.wikimedia.org/wiki/Category:Memorial_complex_Kurgan_Slavy" target="_blank" rel="noopener">Курган Славы</a> ·
@@ -643,20 +648,20 @@
           <a href="https://commons.wikimedia.org/wiki/Category:Stalin_Line_(Zaslawye)_museum" target="_blank" rel="noopener">Линия Сталина</a> ·
           <a href="https://commons.wikimedia.org/wiki/Category:Maly_Trascianiec_memorial" target="_blank" rel="noopener">Тростенец</a>
         </p>
-        <p class="footer__text">Портреты героев — Wikimedia Commons, Википедия, сайт «Герои страны»
+        <p class="footer__text" data-i18n="footer.photos2">Портреты героев — Wikimedia Commons, Википедия, сайт «Герои страны»
           (warheroes.ru) и архив Bundesarchiv. Сайт не публикуется: фото Казея, Заслонова, Портновой,
           Мазаник, Троян, Мариненко, Колесовой, Шершнёвой и Щербацевич используются только
           в непубличном конкурсном проекте.</p>
       </div>
       <div class="footer__col">
-        <p class="footer__head">Сделано для конкурса</p>
-        <p class="footer__text">Номинация «Связь поколений: мы помним». Возрастная группа 14–21 год.</p>
+        <p class="footer__head" data-i18n="footer.headContest">Сделано для конкурса</p>
+        <p class="footer__text" data-i18n="footer.contest">Номинация «Связь поколений: мы помним». Возрастная группа 14–21 год.</p>
         <p class="footer__text" id="footer-year" aria-hidden="true"></p>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <p>Сделано с уважением к памяти героев ⭑ Пока помним — победа живёт в нас</p>
+        <p data-i18n="footer.bottom">Сделано с уважением к памяти героев ⭑ Пока помним — победа живёт в нас</p>
       </div>
     </div>
   </footer>
@@ -674,6 +679,7 @@
 
   <button class="to-top" id="to-top" aria-label="Наверх">↑</button>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
