@@ -312,7 +312,9 @@ a:hover { color: var(--gold-light); }
 /* ---------- Хроника ---------- */
 .timeline {
   position: relative;
-  max-width: 860px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 1rem 0;
 }
@@ -326,12 +328,9 @@ a:hover { color: var(--gold-light); }
 }
 .timeline__item {
   position: relative;
-  width: 50%;
   padding: 1.2rem 2.6rem 2.8rem 2.6rem;
-  height: 285px;
 }
 .timeline__item:nth-child(even) {
-  margin-left: 50%;
   padding: 1.2rem 0 2.8rem 2.6rem;
 }
 .timeline__item::before {
@@ -988,6 +987,7 @@ a:hover { color: var(--gold-light); }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .regiment-grid { grid-template-columns: 1fr; }
   .regiment-form { position: static; }
+  .timeline { grid-template-columns: 1fr; }
   .timeline::before { left: 12px; }
   .timeline__item, .timeline__item:nth-child(even) {
     width: 100%;
