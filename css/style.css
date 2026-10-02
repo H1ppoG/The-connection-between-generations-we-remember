@@ -967,6 +967,8 @@ a:hover { color: var(--gold-light); }
   font-size: 0.85rem;
   letter-spacing: 0.04em;
 }
+.footer__bottom .footer__credits { margin-top: 0.45rem; color: var(--paper-dim); }
+.footer__bottom .footer__credits--author { color: var(--gold); font-weight: 600; letter-spacing: 0.02em; }
 
 /* ---------- Кнопка наверх ---------- */
 .to-top {
