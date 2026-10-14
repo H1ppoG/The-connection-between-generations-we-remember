@@ -781,6 +781,107 @@
     if (e.key === "ArrowRight") stepLightbox(1);
   });
 
+  /* ---------- Герои: подробная информация по клику на портрет ---------- */
+  const heroCards = $$(".hero-card");
+  const hm = $("#hero-modal");
+  const hmImg = $("#hm-img");
+  const hmLife = $("#hm-life");
+  const hmName = $("#hm-name");
+  const hmRole = $("#hm-role");
+  const hmBio = $("#hm-bio");
+  const hmDeeds = $("#hm-deeds");
+  let hmIndex = 0;
+  let hmOpener = null;
+
+  /* n — порядковый номер героя (совпадает с ключами i18n hero.N.*) */
+  function heroData(card) {
+    const n = heroCards.indexOf(card) + 1;
+    const img = card.querySelector("img");
+    return {
+      src: img ? img.currentSrc || img.src : "",
+      alt: img ? img.alt : "",
+      life: t("hero." + n + ".life"),
+      name: t("hero." + n + ".name"),
+      role: t("hero." + n + ".role"),
+      bio: t("hero." + n + ".bio"),
+      deeds: [t("hero." + n + ".deed1"), t("hero." + n + ".deed2"), t("hero." + n + ".deed3")]
+        .filter((s) => s && s.indexOf("hero.") !== 0),
+    };
+  }
+
+  function paintHero(i) {
+    const d = heroData(heroCards[i]);
+    hmIndex = i;
+    hmImg.src = d.src;
+    hmImg.alt = d.alt;
+    hmLife.textContent = d.life;
+    hmLife.hidden = !d.life || d.life.indexOf("hero.") === 0;
+    hmName.textContent = d.name;
+    hmRole.textContent = d.role;
+    hmBio.textContent = d.bio;
+    hmDeeds.innerHTML = "";
+    d.deeds.forEach((txt) => {
+      const li = document.createElement("li");
+      li.textContent = txt;
+      hmDeeds.appendChild(li);
+    });
+    hmDeeds.hidden = d.deeds.length === 0;
+  }
+
+  function openHero(i, opener) {
+    paintHero(i);
+    hmOpener = opener || null;
+    hm.hidden = false;
+    document.body.style.overflow = "hidden";
+    $("#hm-close").focus();
+  }
+  function closeHero() {
+    hm.hidden = true;
+    document.body.style.overflow = "";
+    if (hmOpener) { hmOpener.focus(); hmOpener = null; }
+  }
+  function stepHero(d) {
+    paintHero((hmIndex + d + heroCards.length) % heroCards.length);
+  }
+
+  heroCards.forEach((card, i) => {
+    const photo = card.querySelector(".hero-card__photo");
+    if (!photo) return;
+    photo.classList.add("is-clickable");
+    photo.setAttribute("tabindex", "0");
+    photo.setAttribute("role", "button");
+    const open = () => openHero(i, photo);
+    photo.addEventListener("click", open);
+    photo.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+  });
+  $("#hm-close").addEventListener("click", closeHero);
+  $("#hm-prev").addEventListener("click", () => stepHero(-1));
+  $("#hm-next").addEventListener("click", () => stepHero(1));
+  hm.addEventListener("click", (e) => { if (e.target === hm) closeHero(); });
+  document.addEventListener("keydown", (e) => {
+    if (hm.hidden) return;
+    if (e.key === "Escape") closeHero();
+    if (e.key === "ArrowLeft") stepHero(-1);
+    if (e.key === "ArrowRight") stepHero(1);
+  });
+
+  /* подписи на портретах зависят от языка */
+  function paintHeroPhotoLabels() {
+    heroCards.forEach((card) => {
+      const photo = card.querySelector(".hero-card__photo");
+      if (!photo) return;
+      const n = heroCards.indexOf(card) + 1;
+      photo.setAttribute("data-more", t("heroes.more"));
+      photo.setAttribute("aria-label", tP("heroes.open", { name: t("hero." + n + ".name") }));
+    });
+  }
+  paintHeroPhotoLabels();
+
   /* ---------- Год в подвале ---------- */
   const yearEl = $("#footer-year");
   function setYear() {
@@ -798,5 +899,7 @@
       renderRegiment(regimentItems);
     }
     setYear();
+    paintHeroPhotoLabels();
+    if (!hm.hidden) paintHero(hmIndex);
   });
 })();

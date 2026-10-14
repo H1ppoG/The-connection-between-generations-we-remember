@@ -679,6 +679,27 @@
     <button class="lightbox__next" id="lightbox-next" aria-label="Следующее фото">›</button>
   </div>
 
+  <!-- ======================= ГЕРОИ: ПОДРОБНО ======================= -->
+  <div class="hero-modal" id="hero-modal" hidden role="dialog" aria-modal="true" aria-labelledby="hm-name">
+    <button class="hero-modal__close" id="hm-close" data-i18n-aria="heroes.close" aria-label="Закрыть">✕</button>
+    <button class="hero-modal__nav hero-modal__nav--prev" id="hm-prev" data-i18n-aria="heroes.prev" aria-label="Предыдущий герой">‹</button>
+    <button class="hero-modal__nav hero-modal__nav--next" id="hm-next" data-i18n-aria="heroes.next" aria-label="Следующий герой">›</button>
+    <div class="hero-modal__card">
+      <figure class="hero-modal__figure">
+        <img id="hm-img" src="" alt="">
+      </figure>
+      <div class="hero-modal__body">
+        <p class="hero-modal__life" id="hm-life"></p>
+        <h3 class="hero-modal__name" id="hm-name"></h3>
+        <p class="hero-modal__role" id="hm-role"></p>
+        <h4 class="hero-modal__sub" data-i18n="heroes.bioTitle">О герое</h4>
+        <p class="hero-modal__bio" id="hm-bio"></p>
+        <h4 class="hero-modal__sub" data-i18n="heroes.deedsTitle">Подвиги</h4>
+        <ul class="hero-modal__deeds" id="hm-deeds"></ul>
+      </div>
+    </div>
+  </div>
+
   <button class="to-top" id="to-top" aria-label="Наверх">↑</button>
 
   <script src="js/i18n.js"></script>

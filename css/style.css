@@ -465,6 +465,30 @@ a:hover { color: var(--gold-light); }
   border: 1px solid rgba(201, 163, 92, 0.35);
   background: var(--olive-800);
 }
+/* Портрет открывает подробную информацию о герое */
+.hero-card__photo.is-clickable { cursor: pointer; }
+.hero-card__photo.is-clickable:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.hero-card__photo::after {
+  content: attr(data-more);
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding: 1.5rem 0.7rem 0.6rem;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: linear-gradient(to top, rgba(15, 19, 11, 0.92), rgba(15, 19, 11, 0));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.hero-card__photo.is-clickable:hover::after,
+.hero-card__photo.is-clickable:focus-visible::after { opacity: 1; }
 .hero-card__photo .hero-card__letter {
   position: absolute;
   inset: 0;
@@ -552,6 +576,113 @@ a:hover { color: var(--gold-light); }
 }
 .gallery__more:hover { color: #fff; border-bottom-color: var(--gold); }
 .gallery__more:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Герои: подробная информация ---------- */
+.hero-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  background: rgba(8, 11, 7, 0.94);
+  animation: fadeIn 0.25s ease;
+}
+.hero-modal[hidden] { display: none; }
+.hero-modal__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  width: min(1000px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  background: var(--olive-800);
+  border: 1px solid rgba(201, 163, 92, 0.3);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+}
+.hero-modal__figure {
+  margin: 0;
+  align-self: start;
+}
+.hero-modal__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  object-fit: contain;
+  background: var(--olive-900);
+  border: 1px solid rgba(201, 163, 92, 0.35);
+  border-radius: calc(var(--radius) - 4px);
+}
+.hero-modal__life {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+.hero-modal__name {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.3rem;
+}
+.hero-modal__role {
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-faint);
+  margin-bottom: 1.4rem;
+}
+.hero-modal__sub {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  margin: 1.2rem 0 0.5rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--red);
+}
+.hero-modal__bio { color: var(--paper-dim); font-size: 0.98rem; }
+.hero-modal__deeds { margin: 0; padding-left: 1.15rem; color: var(--paper-dim); font-size: 0.96rem; }
+.hero-modal__deeds li { margin-bottom: 0.45rem; }
+.hero-modal__deeds li::marker { color: var(--gold); }
+.hero-modal__close, .hero-modal__nav {
+  position: absolute;
+  z-index: 2;
+  background: rgba(166, 39, 43, 0.85);
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.hero-modal__close:hover, .hero-modal__nav:hover { background: var(--red); }
+.hero-modal__close { top: 14px; right: 14px; width: 40px; height: 40px; font-size: 1.1rem; }
+.hero-modal__nav {
+  top: 50%;
+  width: 46px; height: 46px;
+  font-size: 1.8rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.hero-modal__nav:hover { transform: translateY(-50%) scale(1.08); }
+.hero-modal__nav--prev { left: 12px; }
+.hero-modal__nav--next { right: 12px; }
+
+@media (max-width: 760px) {
+  .hero-modal { padding: 0; }
+  .hero-modal__card {
+    grid-template-columns: 1fr;
+    max-height: 100%;
+    border-radius: 0;
+    border-left: 0; border-right: 0;
+  }
+  .hero-modal__figure img { max-height: 38vh; }
+  .hero-modal__nav { top: auto; bottom: 16px; transform: none; }
+  .hero-modal__nav:hover { transform: scale(1.08); }
+}
 
 /* ---------- Лайтбокс ---------- */
 .lightbox {
