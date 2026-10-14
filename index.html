@@ -671,12 +671,14 @@
   <!-- ======================= ЛАЙТБОКС ======================= -->
   <div class="lightbox" id="lightbox" hidden>
     <button class="lightbox__close" id="lightbox-close" aria-label="Закрыть">✕</button>
-    <button class="lightbox__prev" id="lightbox-prev" aria-label="Предыдущее фото">‹</button>
     <figure class="lightbox__figure">
-      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox__stage">
+        <button class="lightbox__prev" id="lightbox-prev" aria-label="Предыдущее фото">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox__next" id="lightbox-next" aria-label="Следующее фото">›</button>
+      </div>
       <figcaption id="lightbox-caption"></figcaption>
     </figure>
-    <button class="lightbox__next" id="lightbox-next" aria-label="Следующее фото">›</button>
   </div>
 
   <!-- ======================= ГЕРОИ: ПОДРОБНО ======================= -->

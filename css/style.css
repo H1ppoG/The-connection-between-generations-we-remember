@@ -603,14 +603,20 @@ a:hover { color: var(--gold-light); }
   border-radius: var(--radius);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
 }
+/* Фото тянется на всю высоту колонки, чтобы стрелки (top: 50%) совпадали с центром картинки */
 .hero-modal__figure {
+  position: relative;
   margin: 0;
-  align-self: start;
+  min-height: 200px;
 }
 .hero-modal__figure img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
   max-height: 62vh;
   object-fit: contain;
   background: var(--olive-900);
@@ -661,7 +667,7 @@ a:hover { color: var(--gold-light); }
 .hero-modal__close:hover, .hero-modal__nav:hover { background: var(--red); }
 .hero-modal__close { top: 14px; right: 14px; width: 40px; height: 40px; font-size: 1.1rem; }
 .hero-modal__nav {
-  top: 50%;
+  top: var(--hm-nav-y, 50%);
   width: 46px; height: 46px;
   font-size: 1.8rem;
   line-height: 1;
@@ -696,12 +702,20 @@ a:hover { color: var(--gold-light); }
 }
 .lightbox[hidden] { display: none; }
 @keyframes fadeIn { from { opacity: 0; } }
-.lightbox__figure { max-width: min(1000px, 92vw); }
+.lightbox__figure { max-width: min(1000px, 92vw); margin: 0; }
+/* Стрелки стоят в одной строке с фотографией и центрируются по ней (align-items: center) */
+.lightbox__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 20px);
+}
 .lightbox__figure img {
   max-height: 76vh;
   width: auto;
   max-width: 100%;
-  margin: 0 auto;
+  min-width: 0;
+  flex: 0 1 auto;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
@@ -712,8 +726,6 @@ a:hover { color: var(--gold-light); }
   font-size: 0.95rem;
 }
 .lightbox__close, .lightbox__prev, .lightbox__next {
-  position: absolute;
-  z-index: 2;
   background: rgba(166, 39, 43, 0.85);
   color: #fff;
   border: 0;
@@ -722,17 +734,15 @@ a:hover { color: var(--gold-light); }
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .lightbox__close:hover, .lightbox__prev:hover, .lightbox__next:hover { background: var(--red); transform: scale(1.08); }
-.lightbox__close { top: 22px; right: 22px; width: 44px; height: 44px; font-size: 1.15rem; }
+.lightbox__close { position: absolute; z-index: 2; top: 22px; right: 22px; width: 44px; height: 44px; font-size: 1.15rem; }
 .lightbox__prev, .lightbox__next {
-  top: 50%;
+  flex: 0 0 auto;
   width: 52px; height: 52px;
   font-size: 1.9rem;
-  transform: translateY(-50%);
   line-height: 1;
+  display: grid;
+  place-items: center;
 }
-.lightbox__prev { left: 18px; }
-.lightbox__next { right: 18px; }
-.lightbox__prev:hover, .lightbox__next:hover { transform: translateY(-50%) scale(1.08); }
 
 /* ---------- Свеча памяти ---------- */
 .section--candle {
@@ -1177,8 +1187,8 @@ a:hover { color: var(--gold-light); }
   .candle-area { gap: 0.8rem; }
   .candle { transform: scale(0.86); }
   .lightbox__figure img { max-height: 60vh; }
-  .lightbox__prev { left: 6px; }
-  .lightbox__next { right: 6px; }
+  .lightbox__prev, .lightbox__next { width: 40px; height: 40px; font-size: 1.5rem; }
+  .lightbox__stage { gap: 6px; }
 }
 
 /* ---------- Уважение к reduced-motion ---------- */

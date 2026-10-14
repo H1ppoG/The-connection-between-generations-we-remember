@@ -828,11 +828,22 @@
     hmDeeds.hidden = d.deeds.length === 0;
   }
 
+  /* Стрелки центрируются по фотографии, а не по оверлею */
+  function centerHeroNav() {
+    const fig = hm.querySelector(".hero-modal__figure");
+    if (!fig || hm.hidden) return;
+    const f = fig.getBoundingClientRect();
+    const host = hm.getBoundingClientRect();
+    const offset = f.top + f.height / 2 - host.top;
+    hm.style.setProperty("--hm-nav-y", offset + "px");
+  }
+
   function openHero(i, opener) {
     paintHero(i);
     hmOpener = opener || null;
     hm.hidden = false;
     document.body.style.overflow = "hidden";
+    centerHeroNav();
     $("#hm-close").focus();
   }
   function closeHero() {
@@ -842,6 +853,7 @@
   }
   function stepHero(d) {
     paintHero((hmIndex + d + heroCards.length) % heroCards.length);
+    centerHeroNav();
   }
 
   heroCards.forEach((card, i) => {
@@ -862,6 +874,8 @@
   $("#hm-close").addEventListener("click", closeHero);
   $("#hm-prev").addEventListener("click", () => stepHero(-1));
   $("#hm-next").addEventListener("click", () => stepHero(1));
+  hmImg.addEventListener("load", centerHeroNav);
+  window.addEventListener("resize", centerHeroNav);
   hm.addEventListener("click", (e) => { if (e.target === hm) closeHero(); });
   document.addEventListener("keydown", (e) => {
     if (hm.hidden) return;
