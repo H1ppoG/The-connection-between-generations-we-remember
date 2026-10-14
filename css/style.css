@@ -358,58 +358,55 @@ a:hover { color: var(--gold-light); }
   background: linear-gradient(var(--red), var(--gold), var(--red));
 }
 /*
- * Событие = фото-карточка у центральной линии + текстовый блок сбоку (наружу).
- * Слева от линии: [текст][фото]; справа от линии: [фото][текст].
+ * Зигзаг сохранён: фото остаётся на своей стороне линии, а дата/заголовок/текст
+ * стоят напротив — на другой стороне той же центральной линии.
+ * Слева от линии: [текст ... линия ... фото]; справа: [фото ... линия ... текст].
  */
 .timeline__item {
   position: relative;
-  width: 50%;
+  width: 100%;
   min-height: 285px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 40%;
-  grid-template-rows: auto auto 1fr;
-  column-gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) 3.5rem minmax(0, 1fr);
+  grid-template-areas:
+    "date  gap photo"
+    "title gap photo"
+    "text  gap photo"
+    "text  gap photo";
   row-gap: 0.35rem;
-  padding: 1rem 1.75rem 1rem 0;
+  padding: 1rem 0;
   overflow: visible;
-}
-.timeline__item:nth-child(even) {
-  margin-left: 50%;
-  grid-template-columns: 40% minmax(0, 1fr);
-  padding: 1rem 0 1rem 1.75rem;
 }
 .timeline__item::before {
   content: "";
   position: absolute;
   box-sizing: border-box;
   top: 1.25rem;
-  right: -8px;
+  right: calc(50% - 8px);
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--olive-800);
   border: 3px solid var(--gold);
   z-index: 3;
 }
-.timeline__item:nth-child(even)::before { right: auto; left: -8px; }
+.timeline__item:nth-child(even)::before { right: auto; left: calc(50% - 8px); }
 
-/* Фото-карточка прижата к центральной линии (просвет 1.75rem) */
+/* Фото-карточка — своя половина, прижата к центральной линии */
 .timeline__bg {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 1 / -1;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
 }
-.timeline__item:nth-child(even) .timeline__bg { grid-column: 1; }
 
-/* Текстовый блок — колонка с внешней стороны */
-.timeline__date { grid-column: 1; grid-row: 1; justify-self: start; }
-.timeline__title { grid-column: 1; grid-row: 2; }
-.timeline__text { grid-column: 1; grid-row: 3; }
+/* Текстовый блок — противоположная половина, через линию */
+.timeline__item:nth-child(even) .timeline__bg { grid-column: 1; }
+.timeline__date { justify-self: start; }
 .timeline__item:nth-child(even) .timeline__date,
 .timeline__item:nth-child(even) .timeline__title,
-.timeline__item:nth-child(even) .timeline__text { grid-column: 2; }
+.timeline__item:nth-child(even) .timeline__text { grid-column: 3; }
 
 .timeline__date {
   display: inline-block;
@@ -1009,11 +1006,14 @@ a:hover { color: var(--gold-light); }
   .timeline::before { left: 12px; }
   .timeline__item, .timeline__item:nth-child(even) {
     width: 100%;
-    margin-left: 0;
     min-height: 0;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
-    column-gap: 0;
+    grid-template-areas:
+      "photo"
+      "date"
+      "title"
+      "text";
     row-gap: 0.55rem;
     padding: 1.2rem 0 2rem 2.4rem;
   }
@@ -1024,11 +1024,11 @@ a:hover { color: var(--gold-light); }
     height: 200px;
   }
   .timeline__item .timeline__date,
-  .timeline__item:nth-child(even) .timeline__date { grid-column: 1; grid-row: 2; }
+  .timeline__item:nth-child(even) .timeline__date,
   .timeline__item .timeline__title,
-  .timeline__item:nth-child(even) .timeline__title { grid-column: 1; grid-row: 3; }
+  .timeline__item:nth-child(even) .timeline__title,
   .timeline__item .timeline__text,
-  .timeline__item:nth-child(even) .timeline__text { grid-column: 1; grid-row: 4; }
+  .timeline__item:nth-child(even) .timeline__text { grid-column: 1; }
   .timeline__item::before, .timeline__item:nth-child(even)::before {
     left: 4px;
     right: auto;
