@@ -368,10 +368,10 @@ a:hover { color: var(--gold-light); }
   min-height: 285px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 3.5rem minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "date  gap photo"
     "title gap photo"
-    "text  gap photo"
     "text  gap photo";
   row-gap: 0.35rem;
   padding: 1rem 0;
@@ -403,7 +403,9 @@ a:hover { color: var(--gold-light); }
 
 /* Текстовый блок — противоположная половина, через линию */
 .timeline__item:nth-child(even) .timeline__bg { grid-column: 1; }
-.timeline__date { justify-self: start; }
+.timeline__date { grid-area: date; justify-self: start; align-self: start; }
+.timeline__title { grid-area: title; align-self: start; }
+.timeline__text { grid-area: text; }
 .timeline__item:nth-child(even) .timeline__date,
 .timeline__item:nth-child(even) .timeline__title,
 .timeline__item:nth-child(even) .timeline__text { grid-column: 3; }
