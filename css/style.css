@@ -1095,6 +1095,19 @@ a:hover { color: var(--gold-light); }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- Адаптивность ---------- */
+/* Очень узкие экраны (до 360px): шапка не помещалась, бургер уезжал за край */
+@media (max-width: 360px) {
+  .header__inner { gap: 0.55rem; }
+  .brand { gap: 0.5rem; }
+  .brand__star { width: 36px; height: 36px; }
+  .brand__title { font-size: 0.98rem; }
+  .brand__sub { font-size: 0.7rem; letter-spacing: 0.2em; }
+  .lang-switch { padding: 0.12rem; gap: 0.1rem; }
+  .lang-switch__btn { font-size: 0.72rem; padding: 0.34rem 0.45rem; }
+  .burger { padding: 8px 4px; }
+  .burger span { width: 22px; }
+}
+
 @media (max-width: 1024px) {
   .heroes-grid { grid-template-columns: repeat(2, 1fr); }
   .dialogue-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1116,8 +1129,15 @@ a:hover { color: var(--gold-light); }
   }
   .nav.open { transform: translateX(0); }
   .nav__list { flex-direction: column; gap: 1.3rem; }
-  .nav__link { font-size: 1.1rem; }
+  .nav__link { font-size: 1.1rem; padding: 0.55rem 0; }
   .burger { display: flex; }
+
+  /* Крупные тап-цели на сенсорном экране */
+  .burger { padding: 13px 10px; }
+  .lang-switch__btn { padding: 0.55rem 0.8rem; }
+  .gallery__more { padding: 0.6rem 0.9rem; }
+  .footer__text a { display: inline-block; padding: 0.35rem 0; line-height: 1.3; }
+  .footer__links a { display: inline-block; padding: 0.35rem 0; line-height: 1.3; }
 
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .regiment-grid { grid-template-columns: 1fr; }
@@ -1156,16 +1176,27 @@ a:hover { color: var(--gold-light); }
 }
 
 @media (max-width: 640px) {
+  /* Тап-цели: доводим до комфортной высоты (правила ≤400px перекрывает блок 880px) */
+  .lang-switch__btn { padding: 0.62rem 0.6rem; }
+  .footer__text a, .footer__links a { padding: 0.5rem 0; }
+
   /* Герои: две карточки в ряд, компактное фото — вместо одной гигантской */
   .heroes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
   .hero-card__photo { height: 158px; margin-bottom: 0.7rem; }
-  .hero-card__name { font-size: 0.98rem; line-height: 1.2; }
-  .hero-card__role { font-size: 0.66rem; margin-top: 0.2rem; letter-spacing: 0.04em; }
+  .hero-card__name { font-size: 0.98rem; line-height: 1.2; overflow-wrap: anywhere; }
+  .hero-card__role { font-size: 0.73rem; margin-top: 0.2rem; letter-spacing: 0.02em; line-height: 1.3; }
   .hero-card__text { display: none; }
   .hero-card__letter { font-size: 1.6rem; }
   .hero-card__photo::after { padding: 1.1rem 0.4rem 0.4rem; font-size: 0.66rem; letter-spacing: 0.03em; }
 
-  .dialogue-grid, .gallery { grid-template-columns: 1fr; }
+  .dialogue-grid { grid-template-columns: 1fr; }
+  /* Галерея мемориалов: две карточки в ряд — было 3349px, станет ~1800px */
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+  .gallery__photo { height: 150px; }
+  .gallery__caption { padding: 0.8rem 0.75rem 0.9rem; }
+  .gallery__item h3 { font-size: 1rem; }
+  .gallery__item p { font-size: 0.8rem; }
+  .gallery__year { top: 8px; right: 8px; font-size: 0.72rem; padding: 0.05rem 0.5rem; }
   .stats { grid-template-columns: 1fr; gap: 1.4rem; }
   .footer__grid { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; align-items: stretch; }
