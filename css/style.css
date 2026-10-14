@@ -357,96 +357,73 @@ a:hover { color: var(--gold-light); }
   transform: translateX(-50%);
   background: linear-gradient(var(--red), var(--gold), var(--red));
 }
+/*
+ * Событие = фото-карточка у центральной линии + текстовый блок сбоку (наружу).
+ * Слева от линии: [текст][фото]; справа от линии: [фото][текст].
+ */
 .timeline__item {
   position: relative;
   width: 50%;
-  padding: 1.2rem 2.6rem 2.8rem 2.6rem;
-  height: 285px;
+  min-height: 285px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40%;
+  grid-template-rows: auto auto 1fr;
+  column-gap: 1.5rem;
+  row-gap: 0.35rem;
+  padding: 1rem 1.75rem 1rem 0;
+  overflow: visible;
 }
 .timeline__item:nth-child(even) {
   margin-left: 50%;
-  padding: 1.2rem 0 2.8rem 2.6rem;
+  grid-template-columns: 40% minmax(0, 1fr);
+  padding: 1rem 0 1rem 1.75rem;
 }
 .timeline__item::before {
   content: "";
   position: absolute;
   box-sizing: border-box;
-  top: 6px;
+  top: 1.25rem;
   right: -8px;
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--olive-800);
   border: 3px solid var(--gold);
-  z-index: 1;
+  z-index: 3;
 }
 .timeline__item:nth-child(even)::before { right: auto; left: -8px; }
+
+/* Фото-карточка прижата к центральной линии (просвет 1.75rem) */
+.timeline__bg {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+.timeline__item:nth-child(even) .timeline__bg { grid-column: 1; }
+
+/* Текстовый блок — колонка с внешней стороны */
+.timeline__date { grid-column: 1; grid-row: 1; justify-self: start; }
+.timeline__title { grid-column: 1; grid-row: 2; }
+.timeline__text { grid-column: 1; grid-row: 3; }
+.timeline__item:nth-child(even) .timeline__date,
+.timeline__item:nth-child(even) .timeline__title,
+.timeline__item:nth-child(even) .timeline__text { grid-column: 2; }
+
 .timeline__date {
   display: inline-block;
   font-family: var(--serif);
   font-weight: 700;
-  color: var(--red);
-  background: rgba(166, 39, 43, 0.12);
-  border: 1px solid rgba(166, 39, 43, 0.35);
+  color: var(--paper);
+  background: var(--red);
+  border: 1px solid rgba(201, 163, 92, 0.5);
   padding: 0.14rem 0.8rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  margin-bottom: 0.6rem;
 }
-.timeline__title { font-family: var(--serif); font-size: 1.28rem; margin-bottom: 0.4rem; }
+.timeline__title { font-family: var(--serif); font-size: 1.28rem; }
 .timeline__text { color: var(--paper-dim); font-size: 0.98rem; }
-
-/* Фоновое фото события + градиент, чтобы текст оставался читаемым */
-.timeline__item {
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-  overflow: visible;
-}
-.timeline__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-}
-.timeline__item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: 12px;
-  background: linear-gradient(
-    90deg,
-    rgba(15, 19, 11, 0.95) 0%,
-    rgba(15, 19, 11, 0.6) 18%,
-    rgba(15, 19, 11, 0.18) 45%,
-    rgba(15, 19, 11, 0.18) 55%,
-    rgba(15, 19, 11, 0.6) 82%,
-    rgba(15, 19, 11, 0.95) 100%
-  );
-}
-/* Просвет к центральной линии: фото и градиент не заползают на линию */
-.timeline__item .timeline__bg,
-.timeline__item::after { right: 1.75rem; }
-.timeline__item:nth-child(even) .timeline__bg { right: 0; left: 1.75rem; }
-.timeline__item:nth-child(even)::after { right: 0; left: 1.75rem; }
-
-.timeline__item > .timeline__title,
-.timeline__item > .timeline__text {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-.timeline__item::before { z-index: 3; }
-.timeline__item > .timeline__date,
-.timeline__item > .timeline__title,
-.timeline__item > .timeline__text {
-  position: relative;
-  z-index: 2;
-}
-.timeline__item > .timeline__text { color: var(--paper); }
-.timeline__item > .timeline__date {
-  background: rgba(166, 39, 43, 0.28);
-  border-color: rgba(166, 39, 43, 0.5);
-}
 
 /* ---------- Герои ---------- */
 .heroes-grid {
@@ -1033,14 +1010,29 @@ a:hover { color: var(--gold-light); }
   .timeline__item, .timeline__item:nth-child(even) {
     width: 100%;
     margin-left: 0;
-    padding: 1.2rem 0 2.4rem 2.4rem;
-    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 0;
+    row-gap: 0.55rem;
+    padding: 1.2rem 0 2rem 2.4rem;
   }
-  .timeline__item .timeline__bg, .timeline__item:nth-child(even) .timeline__bg,
-  .timeline__item::after, .timeline__item:nth-child(even)::after { inset: 0; }
+  .timeline__item .timeline__bg,
+  .timeline__item:nth-child(even) .timeline__bg {
+    grid-column: 1;
+    grid-row: 1;
+    height: 200px;
+  }
+  .timeline__item .timeline__date,
+  .timeline__item:nth-child(even) .timeline__date { grid-column: 1; grid-row: 2; }
+  .timeline__item .timeline__title,
+  .timeline__item:nth-child(even) .timeline__title { grid-column: 1; grid-row: 3; }
+  .timeline__item .timeline__text,
+  .timeline__item:nth-child(even) .timeline__text { grid-column: 1; grid-row: 4; }
   .timeline__item::before, .timeline__item:nth-child(even)::before {
     left: 4px;
     right: auto;
+    top: 1.2rem;
   }
 }
 
