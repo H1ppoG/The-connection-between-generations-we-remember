@@ -71,6 +71,32 @@
       </div>
     </section>
 
+    <!-- ======================= СВЕЧА ПАМЯТИ ======================= -->
+    <section class="section section--candle" id="candle">
+      <div class="candle-bg" role="img" aria-label="Скульптура «Непокорённый человек» в Хатыни"></div>
+      <div class="candle-veil"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-head__kicker" data-i18n="candle.kicker">Свеча памяти</p>
+          <h2 class="section-head__title" data-i18n="candle.title">Зажги свечу в память о героях</h2>
+          <p class="section-head__ornament" aria-hidden="true">✦</p>
+        </header>
+
+        <div class="candle-area reveal" id="candle-area" aria-label="Свеча памяти. Нажмите, чтобы зажечь">
+          <div class="candle" id="candle-btn" tabindex="0" role="button" aria-pressed="false" aria-label="Зажечь свечу памяти" title="Зажечь свечу памяти">
+            <span class="candle__flame" aria-hidden="true"></span>
+            <span class="candle__wick" aria-hidden="true"></span>
+            <span class="candle__body" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="candle-counter reveal">
+          <p id="candle-msg">Нажмите на свечу, чтобы зажечь её в память о героях.</p>
+          <p><span data-i18n="candle.totalLabel">Всего зажжено:</span> <strong id="candle-total">0</strong> <span id="candle-total-word">свечей</span></p>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================= О ПРОЕКТЕ ======================= -->
     <section class="section section--dark" id="about">
       <div class="container">
@@ -454,32 +480,6 @@
               <button class="gallery__more" type="button" aria-expanded="false" data-i18n="gallery.more">Читать далее</button>
             </figcaption>
           </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= СВЕЧА ПАМЯТИ ======================= -->
-    <section class="section section--candle" id="candle">
-      <div class="candle-bg" role="img" aria-label="Скульптура «Непокорённый человек» в Хатыни"></div>
-      <div class="candle-veil"></div>
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="section-head__kicker" data-i18n="candle.kicker">Свеча памяти</p>
-          <h2 class="section-head__title" data-i18n="candle.title">Зажги свечу в память о героях</h2>
-          <p class="section-head__ornament" aria-hidden="true">✦</p>
-        </header>
-
-        <div class="candle-area reveal" id="candle-area" aria-label="Свеча памяти. Нажмите, чтобы зажечь">
-          <div class="candle" id="candle-btn" tabindex="0" role="button" aria-pressed="false" aria-label="Зажечь свечу памяти" title="Зажечь свечу памяти">
-            <span class="candle__flame" aria-hidden="true"></span>
-            <span class="candle__wick" aria-hidden="true"></span>
-            <span class="candle__body" aria-hidden="true"></span>
-          </div>
-        </div>
-
-        <div class="candle-counter reveal">
-          <p id="candle-msg">Нажмите на свечу, чтобы зажечь её в память о героях.</p>
-          <p><span data-i18n="candle.totalLabel">Всего зажжено:</span> <strong id="candle-total">0</strong> <span id="candle-total-word">свечей</span></p>
         </div>
       </div>
     </section>
