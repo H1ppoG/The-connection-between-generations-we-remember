@@ -1156,7 +1156,16 @@ a:hover { color: var(--gold-light); }
 }
 
 @media (max-width: 640px) {
-  .heroes-grid, .dialogue-grid, .gallery { grid-template-columns: 1fr; }
+  /* Герои: две карточки в ряд, компактное фото — вместо одной гигантской */
+  .heroes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+  .hero-card__photo { height: 158px; margin-bottom: 0.7rem; }
+  .hero-card__name { font-size: 0.98rem; line-height: 1.2; }
+  .hero-card__role { font-size: 0.66rem; margin-top: 0.2rem; letter-spacing: 0.04em; }
+  .hero-card__text { display: none; }
+  .hero-card__letter { font-size: 1.6rem; }
+  .hero-card__photo::after { padding: 1.1rem 0.4rem 0.4rem; font-size: 0.66rem; letter-spacing: 0.03em; }
+
+  .dialogue-grid, .gallery { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; gap: 1.4rem; }
   .footer__grid { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; align-items: stretch; }
