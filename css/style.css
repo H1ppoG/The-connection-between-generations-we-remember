@@ -333,11 +333,7 @@ a:hover { color: var(--gold-light); }
   transform: translateX(-50%);
   background: linear-gradient(var(--red), var(--gold), var(--red));
 }
-/*
- * Зигзаг сохранён: фото остаётся на своей стороне линии, а дата/заголовок/текст
- * стоят напротив — на другой стороне той же центральной линии.
- * Слева от линии: [текст ... линия ... фото]; справа: [фото ... линия ... текст].
- */
+/* Фото и текст — по разные стороны центральной линии */
 .timeline__item {
   position: relative;
   width: 100%;
@@ -377,7 +373,7 @@ a:hover { color: var(--gold-light); }
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
 }
 
-/* Текстовый блок — противоположная половина, через линию */
+/* Текстовый блок — противоположная половина */
 .timeline__item:nth-child(even) .timeline__bg { grid-column: 1; }
 .timeline__date { grid-area: date; justify-self: start; align-self: start; }
 .timeline__title { grid-area: title; align-self: start; }
@@ -579,7 +575,7 @@ a:hover { color: var(--gold-light); }
   border-radius: var(--radius);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
 }
-/* Фото тянется на всю высоту колонки, чтобы стрелки (top: 50%) совпадали с центром картинки */
+/* Фото на всю высоту колонки — стрелки центрируются по нему */
 .hero-modal__figure {
   position: relative;
   margin: 0;
@@ -679,7 +675,6 @@ a:hover { color: var(--gold-light); }
 .lightbox[hidden] { display: none; }
 @keyframes fadeIn { from { opacity: 0; } }
 .lightbox__figure { max-width: min(1000px, 92vw); margin: 0; }
-/* Стрелки стоят в одной строке с фотографией и центрируются по ней (align-items: center) */
 .lightbox__stage {
   display: flex;
   align-items: center;
@@ -1095,7 +1090,7 @@ a:hover { color: var(--gold-light); }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- Адаптивность ---------- */
-/* Очень узкие экраны (до 360px): шапка не помещалась, бургер уезжал за край */
+/* Узкие экраны: уменьшенная шапка */
 @media (max-width: 360px) {
   .header__inner { gap: 0.55rem; }
   .brand { gap: 0.5rem; }
@@ -1132,7 +1127,7 @@ a:hover { color: var(--gold-light); }
   .nav__link { font-size: 1.1rem; padding: 0.55rem 0; }
   .burger { display: flex; }
 
-  /* Крупные тап-цели на сенсорном экране */
+  /* Увеличенные тап-цели для сенсорного экрана */
   .burger { padding: 13px 10px; }
   .lang-switch__btn { padding: 0.55rem 0.8rem; }
   .gallery__more { padding: 0.6rem 0.9rem; }
@@ -1176,11 +1171,10 @@ a:hover { color: var(--gold-light); }
 }
 
 @media (max-width: 640px) {
-  /* Тап-цели: доводим до комфортной высоты (правила ≤400px перекрывает блок 880px) */
   .lang-switch__btn { padding: 0.62rem 0.6rem; }
   .footer__text a, .footer__links a { padding: 0.5rem 0; }
 
-  /* Герои: две карточки в ряд, компактное фото — вместо одной гигантской */
+  /* Герои: две карточки в ряд */
   .heroes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
   .hero-card__photo { height: 158px; margin-bottom: 0.7rem; }
   .hero-card__name { font-size: 0.98rem; line-height: 1.2; overflow-wrap: anywhere; }
@@ -1190,7 +1184,7 @@ a:hover { color: var(--gold-light); }
   .hero-card__photo::after { padding: 1.1rem 0.4rem 0.4rem; font-size: 0.66rem; letter-spacing: 0.03em; }
 
   .dialogue-grid { grid-template-columns: 1fr; }
-  /* Галерея мемориалов: две карточки в ряд — было 3349px, станет ~1800px */
+  /* Галерея мемориалов: две карточки в ряд */
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
   .gallery__photo { height: 150px; }
   .gallery__caption { padding: 0.8rem 0.75rem 0.9rem; }

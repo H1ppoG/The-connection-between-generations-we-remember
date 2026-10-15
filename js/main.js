@@ -767,7 +767,7 @@
         }
       });
     }
-    /* Клик по карточке (кроме фото) раскрывает историю; кнопка «Читать далее» — то же самое */
+    /* Клик по карточке раскрывает историю */
     fig.addEventListener("click", toggleExpand);
   });
   $("#lightbox-close").addEventListener("click", closeLightbox);
@@ -793,7 +793,7 @@
   let hmIndex = 0;
   let hmOpener = null;
 
-  /* n — порядковый номер героя (совпадает с ключами i18n hero.N.*) */
+  /* n — порядковый номер карточки, совпадает с ключами hero.N.* */
   function heroData(card) {
     const n = heroCards.indexOf(card) + 1;
     const img = card.querySelector("img");
@@ -828,7 +828,7 @@
     hmDeeds.hidden = d.deeds.length === 0;
   }
 
-  /* Стрелки центрируются по фотографии, а не по оверлею */
+  /* Центрирует стрелки по фотографии */
   function centerHeroNav() {
     const fig = hm.querySelector(".hero-modal__figure");
     if (!fig || hm.hidden) return;
@@ -884,7 +884,7 @@
     if (e.key === "ArrowRight") stepHero(1);
   });
 
-  /* подписи на портретах зависят от языка */
+  /* Подписи на портретах */
   function paintHeroPhotoLabels() {
     heroCards.forEach((card) => {
       const photo = card.querySelector(".hero-card__photo");
@@ -903,7 +903,7 @@
   }
   setYear();
 
-  /* ---------- Переключение языка: перерисовываем динамический контент ---------- */
+  /* ---------- Переключение языка ---------- */
   document.addEventListener("svaz:langchange", () => {
     renderCandle();
     startQuiz();
